@@ -1,0 +1,159 @@
+{
+  "models": {
+    "Logistic Regression": {
+      "training": {
+        "final_train_accuracy": 0.7967,
+        "final_val_accuracy": 0.7619,
+        "epochs_trained": 20
+      },
+      "test_evaluation": {
+        "accuracy": 0.8304,
+        "precision": 0.8413,
+        "recall": 0.8548,
+        "f1_score": 0.848,
+        "auc_roc": 0.9003,
+        "confusion_matrix": {
+          "true_positives": 53,
+          "true_negatives": 40,
+          "false_positives": 10,
+          "false_negatives": 9
+        }
+      },
+      "feature_importance": [
+        {
+          "feature": "source_reliability",
+          "weight": -0.23881590296873267,
+          "importance": 0.23881590296873267
+        },
+        {
+          "feature": "emotional_credibility_gap",
+          "weight": 0.20995921181406768,
+          "importance": 0.20995921181406768
+        },
+        {
+          "feature": "credibility_score",
+          "weight": -0.20321584137826368,
+          "importance": 0.20321584137826368
+        },
+        {
+          "feature": "sensationalism_score",
+          "weight": 0.19473716581047718,
+          "importance": 0.19473716581047718
+        },
+        {
+          "feature": "emotional_intensity",
+          "weight": 0.18850435997415396,
+          "importance": 0.18850435997415396
+        },
+        {
+          "feature": "category_politics",
+          "weight": 0.12714932137376803,
+          "importance": 0.12714932137376803
+        },
+        {
+          "feature": "first_flag_tick",
+          "weight": 0.1201767358269721,
+          "importance": 0.1201767358269721
+        },
+        {
+          "feature": "early_verifications",
+          "weight": -0.1021666619425003,
+          "importance": 0.1021666619425003
+        },
+        {
+          "feature": "early_cautious_sharers",
+          "weight": -0.10001876420899616,
+          "importance": 0.10001876420899616
+        },
+        {
+          "feature": "category_entertainment",
+          "weight": -0.09498530312335313,
+          "importance": 0.09498530312335313
+        }
+      ]
+    },
+    "SVM": {
+      "training": {
+        "final_train_accuracy": 0.7885,
+        "final_val_accuracy": 0.7976,
+        "epochs_trained": 20
+      },
+      "test_evaluation": {
+        "accuracy": 0.8125,
+        "precision": 1.0,
+        "recall": 0.6613,
+        "f1_score": 0.7961,
+        "auc_roc": 0.9987,
+        "confusion_matrix": {
+          "true_positives": 41,
+          "true_negatives": 50,
+          "false_positives": 0,
+          "false_negatives": 21
+        }
+      },
+      "feature_importance": [
+        {
+          "feature": "emotional_intensity",
+          "weight": 5.364010989010952,
+          "importance": 5.364010989010952
+        },
+        {
+          "feature": "emotional_credibility_gap",
+          "weight": 3.8561469780219695,
+          "importance": 3.8561469780219695
+        },
+        {
+          "feature": "category_politics",
+          "weight": 3.021978021978008,
+          "importance": 3.021978021978008
+        },
+        {
+          "feature": "sensationalism_score",
+          "weight": 3.003646978021973,
+          "importance": 3.003646978021973
+        },
+        {
+          "feature": "category_science",
+          "weight": 2.9945054945054874,
+          "importance": 2.9945054945054874
+        },
+        {
+          "feature": "early_verification_rate",
+          "weight": 2.4068699157984783,
+          "importance": 2.4068699157984783
+        },
+        {
+          "feature": "category_gossip",
+          "weight": -1.0164835164835109,
+          "importance": 1.0164835164835109
+        },
+        {
+          "feature": "early_share_rate",
+          "weight": 0.8711462148962109,
+          "importance": 0.8711462148962109
+        },
+        {
+          "feature": "credibility_score",
+          "weight": 0.850274725274721,
+          "importance": 0.850274725274721
+        },
+        {
+          "feature": "early_ignore_rate",
+          "weight": 0.8053850910993744,
+          "importance": 0.8053850910993744
+        }
+      ]
+    }
+  },
+  "comparison": {
+    "accuracy_difference": 0.0179,
+    "generalization_gap": {
+      "Logistic Regression": -0.0337,
+      "SVM": -0.024
+    },
+    "better_generalizer": "Logistic Regression",
+    "higher_test_accuracy": "Logistic Regression"
+  },
+  "best_model": "Logistic Regression",
+  "summary": "Model Comparison Summary:\n\n1. Logistic Regression (Logistic Regression):\n   - Training Accuracy: 79.7%\n   - Test Accuracy: 83.0%\n   - Generalization Gap: -3.4%\n\n2. SVM (SVM):\n   - Training Accuracy: 78.8%\n   - Test Accuracy: 81.2%\n   - Generalization Gap: -2.4%\n\nAnalysis:\n- Best Test Performance: Logistic Regression (83.0%)\n- Better Generalization: Logistic Regression (smaller gap)\n- Logistic Regression outperforms SVM on test data by 1.8%"
+}
