@@ -178,4 +178,4 @@ MIT License
 
 ## 👥 Authors
 
-Agent Office Team
+Okan Dogan
