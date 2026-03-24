@@ -18,31 +18,35 @@ from .logger import SimulationLogger
 
 def create_custom_agents() -> list[Agent]:
     """Create a diverse set of agents with different characteristics."""
+    # Import JobRole for assigning office roles
+    from .agent import JobRole
+    job_roles = list(JobRole)
+    
     agents = [
         # Immediate Sharers - Low skepticism, high gullibility
-        create_agent_from_type("agent_0", "Alice", AgentType.IMMEDIATE_SHARER),
-        create_agent_from_type("agent_1", "Bob", AgentType.IMMEDIATE_SHARER),
+        create_agent_from_type("agent_0", "Alice", AgentType.IMMEDIATE_SHARER, job_role=job_roles[0]),
+        create_agent_from_type("agent_1", "Bob", AgentType.IMMEDIATE_SHARER, job_role=job_roles[1]),
         
         # Cautious Sharers - Balanced, moderate verification
-        create_agent_from_type("agent_2", "Charlie", AgentType.CAUTIOUS_SHARER),
-        create_agent_from_type("agent_3", "Diana", AgentType.CAUTIOUS_SHARER),
+        create_agent_from_type("agent_2", "Charlie", AgentType.CAUTIOUS_SHARER, job_role=job_roles[2]),
+        create_agent_from_type("agent_3", "Diana", AgentType.CAUTIOUS_SHARER, job_role=job_roles[3]),
         
         # Skeptics - High skepticism, thorough verification
-        create_agent_from_type("agent_4", "Eve", AgentType.SKEPTIC),
-        create_agent_from_type("agent_5", "Frank", AgentType.SKEPTIC),
+        create_agent_from_type("agent_4", "Eve", AgentType.SKEPTIC, job_role=job_roles[4]),
+        create_agent_from_type("agent_5", "Frank", AgentType.SKEPTIC, job_role=job_roles[5]),
         
         # Influencers - High influence, moderate behavior
-        create_agent_from_type("agent_6", "Grace", AgentType.INFLUENCER),
-        create_agent_from_type("agent_7", "Henry", AgentType.INFLUENCER),
+        create_agent_from_type("agent_6", "Grace", AgentType.INFLUENCER, job_role=job_roles[6]),
+        create_agent_from_type("agent_7", "Henry", AgentType.INFLUENCER, job_role=job_roles[7]),
         
         # Lurkers - Low sharing, high threshold
-        create_agent_from_type("agent_8", "Ivy", AgentType.LURKER),
-        create_agent_from_type("agent_9", "Jack", AgentType.LURKER),
+        create_agent_from_type("agent_8", "Ivy", AgentType.LURKER, job_role=job_roles[0]),
+        create_agent_from_type("agent_9", "Jack", AgentType.LURKER, job_role=job_roles[2]),
         
         # Additional agents for variety
-        create_agent_from_type("agent_10", "Kate", AgentType.CAUTIOUS_SHARER),
-        create_agent_from_type("agent_11", "Leo", AgentType.IMMEDIATE_SHARER),
-        create_agent_from_type("agent_12", "Mia", AgentType.SKEPTIC),
+        create_agent_from_type("agent_10", "Kate", AgentType.CAUTIOUS_SHARER, job_role=job_roles[1]),
+        create_agent_from_type("agent_11", "Leo", AgentType.IMMEDIATE_SHARER, job_role=job_roles[4]),
+        create_agent_from_type("agent_12", "Mia", AgentType.SKEPTIC, job_role=job_roles[6]),
     ]
     
     return agents

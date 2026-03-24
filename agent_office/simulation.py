@@ -3,7 +3,7 @@ Simulation module - Runs the information spread simulation.
 """
 
 from dataclasses import dataclass, field
-from typing import Optional, Callable
+from typing import Optional, Callable, TYPE_CHECKING
 from datetime import datetime
 from enum import Enum
 import time
@@ -13,6 +13,9 @@ from collections import deque
 from .agent import Agent, AgentBehavior, AgentType, create_agent_from_type
 from .post import Post, TruthValue
 from .network import SocialNetwork
+
+if TYPE_CHECKING:
+    from .office import Office, OfficeTask
 
 
 class SimulationState(Enum):
@@ -67,13 +70,17 @@ class Simulation:
     
     Manages the flow of information through the social network,
     tracking how posts spread between agents.
+    
+    Can optionally run office work simulation alongside info-spread.
     """
     
     def __init__(
         self,
         network: SocialNetwork,
         tick_delay: float = 0.5,
-        on_event: Optional[Callable[[SimulationEvent], None]] = None
+        on_event: Optional[Callable[[SimulationEvent], None]] = None,
+        office: Optional['Office'] = None,
+        on_office_event: Optional[Callable[[str, 'Agent', Optional['OfficeTask']], None]] = None
     ):
         """
         Initialize the simulation.
@@ -81,11 +88,15 @@ class Simulation:
         Args:
             network: The social network to simulate
             tick_delay: Delay between simulation ticks (seconds)
-            on_event: Callback function for simulation events
+            on_event: Callback function for simulation events (info-spread)
+            office: Optional Office instance for work simulation
+            on_office_event: Callback for office events (event_type, agent, task)
         """
         self.network = network
         self.tick_delay = tick_delay
         self.on_event = on_event
+        self.office = office
+        self.on_office_event = on_office_event
         
         self.state = SimulationState.IDLE
         self.current_tick = 0
@@ -97,6 +108,16 @@ class Simulation:
         # Track spread timing
         self.post_first_seen: dict[str, int] = {}  # post_id -> tick first seen
         self.post_last_shared: dict[str, int] = {}  # post_id -> tick last shared
+        
+        # Office events tracking (separate from info-spread events)
+        self.office_events: list[dict] = []
+        
+        # Track work-generated posts (for logging)
+        self.work_posts_generated: list[dict] = []
+        
+        # Connect office to simulation if provided
+        if self.office:
+            self._connect_office()
     
     def add_post(self, post: Post, initial_agent: Optional[Agent] = None) -> None:
         """
@@ -116,6 +137,37 @@ class Simulation:
             
             # Queue shares to all followers
             self._queue_shares_to_followers(post, initial_agent)
+    
+    def _connect_office(self) -> None:
+        """
+        Connect the office to this simulation.
+        When office tasks complete, the generated posts will be injected into
+        the info-spread network.
+        """
+        def on_work_post_created(post: Post, agent: Agent, product=None) -> None:
+            """Callback when office work generates a post."""
+            # Log the work post creation
+            from .office import Product
+            self.work_posts_generated.append({
+                'tick': self.current_tick,
+                'post_id': post.id,
+                'post_subject': post.subject,
+                'agent_id': agent.id,
+                'agent_name': agent.name,
+                'agent_job_role': agent.job_role.value if agent.job_role else None,
+                'product_advanced': product is not None,
+                'product_name': product.name if product else None
+            })
+            
+            # Inject the post into the simulation (it spreads like any other post!)
+            self.add_post(post, agent)
+            
+            # Trigger callback if set
+            if self.on_office_event:
+                self.on_office_event("work_post_created", agent, None)
+        
+        # Set the callback on the office
+        self.office.on_post_create = on_work_post_created
     
     def _queue_shares_to_followers(self, post: Post, from_agent: Agent) -> None:
         """Queue shares of a post to all followers of an agent."""
@@ -179,6 +231,7 @@ class Simulation:
                 "confidence": round(confidence, 3),
                 "trust_modifier": round(trust_modifier, 3),
                 "agent_type": to_agent.agent_type.value,
+                "job_role": to_agent.job_role.value if to_agent.job_role else None,
                 "post_truth": post.truth_value.value,
                 "post_category": post.category.value,
                 "emotional_intensity": post.emotional_intensity
@@ -222,17 +275,44 @@ class Simulation:
         """
         Run a single simulation tick.
         
+        Each tick consists of:
+        1. Info-spread phase: Process pending post shares
+        2. Office work phase (optional): Agents work on tasks
+        
         Returns:
-            List of events that occurred during this tick
+            List of info-spread events that occurred during this tick
         """
         events_this_tick = []
         
+        # === PHASE 1: INFO-SPREAD SIMULATION (unchanged) ===
         # Process a batch of pending shares
         batch_size = min(len(self.pending_shares), 5)
         for _ in range(batch_size):
             event = self._process_pending_share()
             if event:
                 events_this_tick.append(event)
+        
+        # === PHASE 2: OFFICE WORK (optional, runs alongside) ===
+        if self.office:
+            completed_tasks = self.office.tick()
+            for agent, task, product in completed_tasks:
+                office_event = {
+                    "tick": self.current_tick,
+                    "event_type": "task_completed",
+                    "agent_id": agent.id,
+                    "agent_name": agent.name,
+                    "agent_job_role": agent.job_role.value if agent.job_role else None,
+                    "task_id": task.id,
+                    "task_title": task.title,
+                    "task_type": task.task_type.value,
+                    "product_advanced": product is not None,
+                    "product_name": product.name if product else None
+                }
+                self.office_events.append(office_event)
+                
+                # Trigger callback if set
+                if self.on_office_event:
+                    self.on_office_event("task_completed", agent, task)
         
         self.current_tick += 1
         self.stats.total_ticks = self.current_tick
@@ -312,17 +392,27 @@ class Simulation:
     
     def get_simulation_report(self) -> dict:
         """Get a comprehensive simulation report."""
-        return {
+        report = {
             "simulation_info": {
                 "state": self.state.value,
                 "total_ticks": self.current_tick,
-                "total_events": len(self.events)
+                "total_events": len(self.events),
+                "has_office": self.office is not None
             },
             "network_stats": self.network.get_network_stats(),
             "simulation_stats": self.stats.get_summary(),
             "post_stats": self.get_post_stats(),
             "agent_stats": self.get_agent_stats()
         }
+        
+        # Add office data if office is enabled
+        if self.office:
+            report["office_stats"] = self.office.get_stats()
+            report["office_events"] = self.office_events
+            report["work_posts_generated"] = self.work_posts_generated
+            report["work_post_count"] = len(self.work_posts_generated)
+        
+        return report
 
 
 def create_default_simulation(

@@ -14,7 +14,7 @@ from pathlib import Path
 from typing import Optional
 import json
 
-from .agent import Agent, AgentType, create_agent_from_type
+from .agent import Agent, AgentType, JobRole, create_agent_from_type
 from .post import Post, create_sample_posts
 from .network import SocialNetwork
 from .simulation import Simulation
@@ -55,7 +55,7 @@ class DataGenerationPipeline:
         self.ml_pipeline: Optional[MLPipeline] = None
     
     def create_agents(self, num_agents: int = 13) -> list[Agent]:
-        """Create a diverse set of agents."""
+        """Create a diverse set of agents with job roles."""
         agents = []
         agent_types = list(AgentType)
         agent_names = [
@@ -63,11 +63,14 @@ class DataGenerationPipeline:
             "Frank", "Grace", "Henry", "Ivy", "Jack",
             "Kate", "Leo", "Mia", "Noah", "Olivia"
         ]
+        # Job roles for office simulation (cycle through them)
+        job_roles = list(JobRole)
         
         for i in range(num_agents):
             agent_type = agent_types[i % len(agent_types)]
+            job_role = job_roles[i % len(job_roles)]
             name = agent_names[i] if i < len(agent_names) else f"Agent_{i}"
-            agent = create_agent_from_type(f"agent_{i}", name, agent_type)
+            agent = create_agent_from_type(f"agent_{i}", name, agent_type, job_role=job_role)
             agents.append(agent)
         
         return agents
@@ -91,7 +94,7 @@ class DataGenerationPipeline:
         
         for agent in agents:
             network.add_agent(agent)
-            tracker.register_agent(agent.id, agent.agent_type)
+            tracker.register_agent(agent.id, agent.agent_type, agent.job_role)
         
         network.create_preferential_attachment_network(avg_connections=4)
         

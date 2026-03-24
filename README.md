@@ -165,6 +165,33 @@ Best Model: Logistic Regression
 | Influencer | 🟡 | High network influence |
 | Lurker | ⚪ | Reads but rarely shares |
 
+## 🎮 3D Visualization (Planned)
+
+The next major feature! Visualize the office like a **Sims game**:
+
+### Concept
+Imagine a virtual office where you watch agents live their lives:
+- **Agents walk around** an office floor plan (desks, meeting rooms, kitchen)
+- **Job roles have "stations"** - Developers at coding desks, Testers in a QA lab, Janitors in the kitchen
+- **Tasks are visible** - Progress bars above agents' heads, or they sit at stations
+- **Products are "built"** - A project board shows progress; shipped products get a celebration animation
+- **Info-spread is social** - Speech bubbles show posts; agents cluster to gossip/share
+- **Time-of-day matters** - Morning = coffee chat (more shares), afternoon = focused work
+
+### Why "Sims-like"?
+The simulation is already a "living office" - agents have personalities, relationships, and routines. 3D visualization makes this **observable**:
+- You see *why* a post spreads (Alice told Bob, who told Carol...)
+- You see *where* work happens (Frank in the kitchen, Alice at her desk)
+- You see *how* products evolve (tasks complete → product advances → shipped!)
+
+### Tech Options
+- **Pygame** (2D isometric) - Lightweight, quick to build
+- **Pygame + isometric tiles** - Classic "top-down office" look
+- **Godot / Unity** (3D) - Full 3D with animations (heavier)
+- **Web (Three.js)** - Browser-based, shareable
+
+*See PLAN.MD for detailed visualization roadmap.*
+
 ## 🔮 Future Work (Not Implemented)
 
 - ML Pipeline enhancements (more models)

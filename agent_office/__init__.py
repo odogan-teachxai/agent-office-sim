@@ -18,7 +18,7 @@ Features:
 __version__ = "2.0.0"
 __author__ = "Agent Office Team"
 
-from .agent import Agent, AgentBehavior, AgentType, create_agent_from_type
+from .agent import Agent, AgentBehavior, AgentType, JobRole, create_agent_from_type
 from .post import Post, PostCategory, TruthValue, create_sample_posts
 from .network import SocialNetwork
 from .simulation import Simulation, create_default_simulation
@@ -26,6 +26,10 @@ from .logger import SimulationLogger
 from .pipeline import DataGenerationPipeline
 from .tui_app import TUIApp, run_tui_app
 from .terminal_viz import TerminalVisualizer, run_terminal_visualization
+from .office import (
+    Office, OfficeTask, TaskType, TaskStatus, SAMPLE_TASKS,
+    Product, ProductStatus, SAMPLE_PRODUCTS
+)
 
 # Optional GUI visualization (requires tkinter)
 try:
@@ -41,6 +45,7 @@ __all__ = [
     "Agent",
     "AgentBehavior", 
     "AgentType",
+    "JobRole",
     "create_agent_from_type",
     "Post",
     "PostCategory",
@@ -50,6 +55,15 @@ __all__ = [
     "Simulation",
     "create_default_simulation",
     "SimulationLogger",
+    # Office simulation
+    "Office",
+    "OfficeTask",
+    "TaskType",
+    "TaskStatus",
+    "SAMPLE_TASKS",
+    "Product",
+    "ProductStatus",
+    "SAMPLE_PRODUCTS",
     # ML Pipeline
     "DataGenerationPipeline",
     # Visualization

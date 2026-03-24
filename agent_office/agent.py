@@ -18,6 +18,18 @@ class AgentType(Enum):
     LURKER = "lurker"                           # Reads but rarely shares
 
 
+class JobRole(Enum):
+    """Office job roles for agents (orthogonal to AgentType sharing behavior)."""
+    DEVELOPER = "developer"           # Writes code, fixes bugs
+    PROJECT_MANAGER = "project_manager"  # Plans, coordinates, assigns work
+    TESTER = "tester"                 # Tests code, reports issues
+    JANITOR = "janitor"               # Maintains office, cleans up
+    DESIGNER = "designer"             # Designs UI/UX, creates assets
+    INTERN = "intern"                 # Learning, assisting others
+    SALES_REP = "sales_rep"           # Sells products, talks to clients
+    HR_MANAGER = "hr_manager"         # Handles hiring, culture, conflicts
+
+
 class AgentBehavior(Enum):
     """Possible behaviors an agent can exhibit when encountering a post."""
     SHARE_IMMEDIATELY = "share_immediately"
@@ -35,17 +47,23 @@ class Agent:
     Attributes:
         id: Unique identifier for the agent
         name: Display name of the agent
-        agent_type: Behavioral type of the agent
+        agent_type: Behavioral type of the agent (info-sharing behavior)
+        job_role: Office job role (developer, PM, tester, etc.) - orthogonal to agent_type
         gullibility: How easily they believe information (0.0 - 1.0)
         skepticism: How likely they are to question information (0.0 - 1.0)
         influence: How much influence they have in the network (0.0 - 1.0)
         share_threshold: Minimum score needed for them to share (0.0 - 1.0)
         verify_probability: Probability they will verify before sharing (0.0 - 1.0)
         emotional_susceptibility: How much emotional content affects them (0.0 - 1.0)
+        
+        # Office work attributes (for future office simulation)
+        current_task: Optional[str] = None  # What they're currently working on
+        productivity: float = 0.5  # How efficiently they work (0.0 - 1.0)
     """
     id: str
     name: str
     agent_type: AgentType
+    job_role: Optional[JobRole] = None  # Orthogonal to agent_type!
     gullibility: float = 0.5
     skepticism: float = 0.5
     influence: float = 0.5
@@ -53,11 +71,15 @@ class Agent:
     verify_probability: float = 0.5
     emotional_susceptibility: float = 0.5
     
-    # Tracking attributes
+    # Tracking attributes (info spread)
     posts_seen: list = field(default_factory=list)
     posts_shared: list = field(default_factory=list)
     posts_flagged: list = field(default_factory=list)
     total_shares_received: int = 0
+    
+    # Office work attributes (placeholder for future)
+    current_task: Optional[str] = None
+    productivity: float = 0.5
     
     def __post_init__(self):
         """Validate and clamp values after initialization."""
@@ -314,20 +336,39 @@ class Agent:
             "id": self.id,
             "name": self.name,
             "type": self.agent_type.value,
+            "job_role": self.job_role.value if self.job_role else None,
             "influence": self.influence,
             "posts_seen": len(self.posts_seen),
             "posts_shared": len(self.posts_shared),
             "posts_flagged": len(self.posts_flagged),
             "share_rate": len(self.posts_shared) / max(1, len(self.posts_seen)),
-            "total_shares_received": self.total_shares_received
+            "total_shares_received": self.total_shares_received,
+            "current_task": self.current_task
         }
     
     def __repr__(self) -> str:
-        return f"Agent({self.name}, type={self.agent_type.value}, influence={self.influence:.2f})"
+        job_info = f", job={self.job_role.value}" if self.job_role else ""
+        return f"Agent({self.name}, type={self.agent_type.value}{job_info}, influence={self.influence:.2f})"
 
 
-def create_agent_from_type(agent_id: str, name: str, agent_type: AgentType) -> Agent:
-    """Factory function to create agents with type-appropriate characteristics."""
+def create_agent_from_type(
+    agent_id: str,
+    name: str,
+    agent_type: AgentType,
+    job_role: Optional[JobRole] = None
+) -> Agent:
+    """
+    Factory function to create agents with type-appropriate characteristics.
+    
+    Args:
+        agent_id: Unique identifier
+        name: Display name
+        agent_type: Info-sharing behavior type (IMMEDIATE_SHARER, SKEPTIC, etc.)
+        job_role: Office job role (DEVELOPER, PROJECT_MANAGER, etc.) - optional
+    
+    Returns:
+        Configured Agent instance
+    """
     
     type_configs = {
         AgentType.IMMEDIATE_SHARER: {
@@ -378,5 +419,6 @@ def create_agent_from_type(agent_id: str, name: str, agent_type: AgentType) -> A
         id=agent_id,
         name=name,
         agent_type=agent_type,
+        job_role=job_role,  # Can be None
         **config
     )

@@ -10,6 +10,8 @@ from dataclasses import dataclass, field
 from typing import Optional
 import math
 
+from ..agent import JobRole
+
 
 @dataclass
 class PostFeatures:
@@ -99,6 +101,21 @@ class SpreadFeatures:
     skeptic_share_ratio: float = 0.0  # skeptics sharing / total shares
     immediate_sharer_ratio: float = 0.0
     
+    # Job role involvement in early spread (NEW for office simulation)
+    early_developer_shares: int = 0
+    early_tester_shares: int = 0
+    early_pm_shares: int = 0
+    early_janitor_shares: int = 0
+    early_designer_shares: int = 0
+    early_intern_shares: int = 0
+    early_sales_shares: int = 0
+    early_hr_shares: int = 0
+    
+    # Job role ratios (NEW)
+    developer_share_ratio: float = 0.0
+    tester_flag_ratio: float = 0.0  # Testers are good at spotting issues
+    pm_share_ratio: float = 0.0  # PMs amplify information
+    
     # Timing
     first_share_tick: Optional[int] = None
     first_flag_tick: Optional[int] = None
@@ -135,6 +152,19 @@ class SpreadFeatures:
             self.early_lurkers,
             self.skeptic_share_ratio,
             self.immediate_sharer_ratio,
+            # Job role features (NEW)
+            self.early_developer_shares,
+            self.early_tester_shares,
+            self.early_pm_shares,
+            self.early_janitor_shares,
+            self.early_designer_shares,
+            self.early_intern_shares,
+            self.early_sales_shares,
+            self.early_hr_shares,
+            self.developer_share_ratio,
+            self.tester_flag_ratio,
+            self.pm_share_ratio,
+            # Timing
             self.first_share_tick if self.first_share_tick is not None else -1,
             self.first_flag_tick if self.first_flag_tick is not None else -1,
             self.time_to_first_flag if self.time_to_first_flag is not None else -1,
@@ -167,6 +197,19 @@ class SpreadFeatures:
             "early_lurkers": self.early_lurkers,
             "skeptic_share_ratio": self.skeptic_share_ratio,
             "immediate_sharer_ratio": self.immediate_sharer_ratio,
+            # Job role features (NEW)
+            "early_developer_shares": self.early_developer_shares,
+            "early_tester_shares": self.early_tester_shares,
+            "early_pm_shares": self.early_pm_shares,
+            "early_janitor_shares": self.early_janitor_shares,
+            "early_designer_shares": self.early_designer_shares,
+            "early_intern_shares": self.early_intern_shares,
+            "early_sales_shares": self.early_sales_shares,
+            "early_hr_shares": self.early_hr_shares,
+            "developer_share_ratio": self.developer_share_ratio,
+            "tester_flag_ratio": self.tester_flag_ratio,
+            "pm_share_ratio": self.pm_share_ratio,
+            # Timing
             "first_share_tick": self.first_share_tick,
             "first_flag_tick": self.first_flag_tick,
             "time_to_first_flag": self.time_to_first_flag,
@@ -200,7 +243,14 @@ class FeatureExtractor:
         "share_acceleration", "avg_early_confidence", "confidence_variance",
         "early_immediate_sharers", "early_cautious_sharers", "early_skeptics",
         "early_influencers", "early_lurkers", "skeptic_share_ratio",
-        "immediate_sharer_ratio", "first_share_tick", "first_flag_tick",
+        "immediate_sharer_ratio",
+        # Job role features (NEW)
+        "early_developer_shares", "early_tester_shares", "early_pm_shares",
+        "early_janitor_shares", "early_designer_shares", "early_intern_shares",
+        "early_sales_shares", "early_hr_shares",
+        "developer_share_ratio", "tester_flag_ratio", "pm_share_ratio",
+        # Timing
+        "first_share_tick", "first_flag_tick",
         "time_to_first_flag", "immediate_share_ratio", "verified_share_ratio",
         "avg_trust_modifier", "high_trust_shares"
     ]
@@ -325,11 +375,39 @@ class FeatureExtractor:
                 features.early_influencers += 1
             elif agent_type == "lurker":
                 features.early_lurkers += 1
+            
+            # Job role tracking (NEW)
+            if share.job_role:
+                job_role = share.job_role.value
+                if job_role == "developer":
+                    features.early_developer_shares += 1
+                elif job_role == "tester":
+                    features.early_tester_shares += 1
+                elif job_role == "project_manager":
+                    features.early_pm_shares += 1
+                elif job_role == "janitor":
+                    features.early_janitor_shares += 1
+                elif job_role == "designer":
+                    features.early_designer_shares += 1
+                elif job_role == "intern":
+                    features.early_intern_shares += 1
+                elif job_role == "sales_rep":
+                    features.early_sales_shares += 1
+                elif job_role == "hr_manager":
+                    features.early_hr_shares += 1
         
         # Agent type ratios
         if features.early_shares > 0:
             features.skeptic_share_ratio = features.early_skeptics / features.early_shares
             features.immediate_sharer_ratio = features.early_immediate_sharers / features.early_shares
+            # Job role ratios (NEW)
+            features.developer_share_ratio = features.early_developer_shares / features.early_shares
+            features.pm_share_ratio = features.early_pm_shares / features.early_shares
+        
+        # Tester flag ratio (testers are good at spotting issues)
+        tester_flags = sum(1 for f in flags if f.job_role and f.job_role.value == "tester")
+        if features.early_flags > 0:
+            features.tester_flag_ratio = tester_flags / features.early_flags
         
         # Timing
         if shares:

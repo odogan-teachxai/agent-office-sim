@@ -14,7 +14,7 @@ from datetime import datetime
 from collections import defaultdict
 import json
 
-from ..agent import AgentType, AgentBehavior
+from ..agent import AgentType, AgentBehavior, JobRole
 from ..post import Post, TruthValue
 
 
@@ -31,6 +31,8 @@ class AgentInteraction:
     from_agent_type: Optional[AgentType] = None
     from_agent_id: Optional[str] = None
     timestamp: datetime = field(default_factory=datetime.now)
+    # Job role (NEW for office simulation)
+    job_role: Optional[JobRole] = None
 
 
 @dataclass 
@@ -63,6 +65,11 @@ class DisseminationRecord:
     agent_types_flagged: dict[str, int] = field(default_factory=lambda: defaultdict(int))
     agent_types_verified: dict[str, int] = field(default_factory=lambda: defaultdict(int))
     
+    # Job role tracking (NEW for office simulation)
+    job_roles_seen: dict[str, int] = field(default_factory=lambda: defaultdict(int))
+    job_roles_shared: dict[str, int] = field(default_factory=lambda: defaultdict(int))
+    job_roles_flagged: dict[str, int] = field(default_factory=lambda: defaultdict(int))
+    
     # Timing metrics
     first_share_tick: Optional[int] = None
     first_flag_tick: Optional[int] = None
@@ -91,11 +98,20 @@ class DisseminationRecord:
         agent_type_str = interaction.agent_type.value
         self.agent_types_seen[agent_type_str] += 1
         
+        # Track by job role (NEW for office simulation)
+        if interaction.job_role:
+            job_role_str = interaction.job_role.value
+            self.job_roles_seen[job_role_str] += 1
+        
         # Track behavior-specific metrics
         if interaction.behavior in [AgentBehavior.SHARE_IMMEDIATELY, AgentBehavior.VERIFY_THEN_SHARE]:
             self.total_shares += 1
             self.shares_by_tick[interaction.tick] += 1
             self.agent_types_shared[agent_type_str] += 1
+            
+            # Track job role shares (NEW)
+            if interaction.job_role:
+                self.job_roles_shared[interaction.job_role.value] += 1
             
             if self.first_share_tick is None:
                 self.first_share_tick = interaction.tick
@@ -110,6 +126,10 @@ class DisseminationRecord:
             self.total_flags += 1
             self.flags_by_tick[interaction.tick] += 1
             self.agent_types_flagged[agent_type_str] += 1
+            
+            # Track job role flags (NEW)
+            if interaction.job_role:
+                self.job_roles_flagged[interaction.job_role.value] += 1
             
             if self.first_flag_tick is None:
                 self.first_flag_tick = interaction.tick
@@ -149,12 +169,25 @@ class DisseminationRecord:
         early_sharing_types = defaultdict(int)
         early_flagging_types = defaultdict(int)
         
+        # Early job role distribution (NEW)
+        early_job_roles = defaultdict(int)
+        early_job_roles_shared = defaultdict(int)
+        early_job_roles_flagged = defaultdict(int)
+        
         for i in early_interactions:
             early_agent_types[i.agent_type.value] += 1
             if i.behavior in [AgentBehavior.SHARE_IMMEDIATELY, AgentBehavior.VERIFY_THEN_SHARE]:
                 early_sharing_types[i.agent_type.value] += 1
             if i.behavior == AgentBehavior.FLAG_AS_SUSPICIOUS:
                 early_flagging_types[i.agent_type.value] += 1
+            
+            # Track job roles (NEW)
+            if i.job_role:
+                early_job_roles[i.job_role.value] += 1
+                if i.behavior in [AgentBehavior.SHARE_IMMEDIATELY, AgentBehavior.VERIFY_THEN_SHARE]:
+                    early_job_roles_shared[i.job_role.value] += 1
+                if i.behavior == AgentBehavior.FLAG_AS_SUSPICIOUS:
+                    early_job_roles_flagged[i.job_role.value] += 1
         
         # Early velocity (shares per tick)
         early_velocity = early_shares / max(1, window)
@@ -178,6 +211,10 @@ class DisseminationRecord:
             "early_agent_types_seen": dict(early_agent_types),
             "early_agent_types_shared": dict(early_sharing_types),
             "early_agent_types_flagged": dict(early_flagging_types),
+            # Job role metrics (NEW)
+            "early_job_roles": dict(early_job_roles),
+            "early_job_roles_shared": dict(early_job_roles_shared),
+            "early_job_roles_flagged": dict(early_job_roles_flagged),
         }
     
     def get_full_metrics(self) -> dict:
@@ -287,10 +324,13 @@ class EarlyDisseminationTracker:
         self.early_window_ticks = early_window_ticks
         self.records: dict[str, DisseminationRecord] = {}
         self.agent_registry: dict[str, AgentType] = {}  # agent_id -> AgentType
+        self.job_role_registry: dict[str, JobRole] = {}  # agent_id -> JobRole (NEW)
     
-    def register_agent(self, agent_id: str, agent_type: AgentType) -> None:
+    def register_agent(self, agent_id: str, agent_type: AgentType, job_role: Optional[JobRole] = None) -> None:
         """Register an agent for tracking."""
         self.agent_registry[agent_id] = agent_type
+        if job_role:
+            self.job_role_registry[agent_id] = job_role
     
     def register_post(self, post: Post) -> None:
         """Register a post for tracking."""
@@ -324,6 +364,7 @@ class EarlyDisseminationTracker:
         record = self.records[post_id]
         agent_type = self.agent_registry.get(agent_id, AgentType.CAUTIOUS_SHARER)
         from_agent_type = self.agent_registry.get(from_agent_id) if from_agent_id else None
+        job_role = self.job_role_registry.get(agent_id)  # NEW: Get job role
         
         # Convert string behavior to enum if needed
         if isinstance(behavior, str):
@@ -338,7 +379,8 @@ class EarlyDisseminationTracker:
             confidence=confidence,
             trust_modifier=trust_modifier,
             from_agent_type=from_agent_type,
-            from_agent_id=from_agent_id
+            from_agent_id=from_agent_id,
+            job_role=job_role  # NEW: Include job role
         )
         
         record.record_interaction(interaction)

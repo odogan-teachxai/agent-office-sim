@@ -1,0 +1,1153 @@
+{
+  "metadata": {
+    "start_time": "2026-03-24T10:37:50.980639",
+    "log_file": "output/simulation_20260324_103750.json",
+    "end_time": "2026-03-24T10:37:57.955695"
+  },
+  "events": [
+    {
+      "timestamp": "2026-03-24T10:37:50.981505",
+      "tick": 0,
+      "event_type": "post_received",
+      "agent_id": "agent_0",
+      "agent_name": "Alice",
+      "post_id": "4b1e4272",
+      "post_subject": "SHOCKING: Celebrities Secretly Running Government",
+      "behavior": "verify_then_share",
+      "details": {
+        "from_agent": "Grace",
+        "confidence": 1.0,
+        "trust_modifier": 0.654,
+        "agent_type": "immediate_sharer",
+        "job_role": "developer",
+        "post_truth": "false",
+        "post_category": "gossip",
+        "emotional_intensity": 0.9
+      }
+    },
+    {
+      "timestamp": "2026-03-24T10:37:50.981539",
+      "tick": 0,
+      "event_type": "post_received",
+      "agent_id": "agent_2",
+      "agent_name": "Charlie",
+      "post_id": "4b1e4272",
+      "post_subject": "SHOCKING: Celebrities Secretly Running Government",
+      "behavior": "verify_then_ignore",
+      "details": {
+        "from_agent": "Grace",
+        "confidence": 0.545,
+        "trust_modifier": 0.654,
+        "agent_type": "cautious_sharer",
+        "job_role": "tester",
+        "post_truth": "false",
+        "post_category": "gossip",
+        "emotional_intensity": 0.9
+      }
+    },
+    {
+      "timestamp": "2026-03-24T10:37:50.981556",
+      "tick": 0,
+      "event_type": "post_received",
+      "agent_id": "agent_4",
+      "agent_name": "Eve",
+      "post_id": "4b1e4272",
+      "post_subject": "SHOCKING: Celebrities Secretly Running Government",
+      "behavior": "flag_as_suspicious",
+      "details": {
+        "from_agent": "Grace",
+        "confidence": 0.675,
+        "trust_modifier": 0.654,
+        "agent_type": "skeptic",
+        "job_role": "designer",
+        "post_truth": "false",
+        "post_category": "gossip",
+        "emotional_intensity": 0.9
+      }
+    },
+    {
+      "timestamp": "2026-03-24T10:37:50.981571",
+      "tick": 0,
+      "event_type": "post_received",
+      "agent_id": "agent_5",
+      "agent_name": "Frank",
+      "post_id": "4b1e4272",
+      "post_subject": "SHOCKING: Celebrities Secretly Running Government",
+      "behavior": "flag_as_suspicious",
+      "details": {
+        "from_agent": "Grace",
+        "confidence": 0.684,
+        "trust_modifier": 0.654,
+        "agent_type": "skeptic",
+        "job_role": "intern",
+        "post_truth": "false",
+        "post_category": "gossip",
+        "emotional_intensity": 0.9
+      }
+    },
+    {
+      "timestamp": "2026-03-24T10:37:50.981584",
+      "tick": 0,
+      "event_type": "post_received",
+      "agent_id": "agent_7",
+      "agent_name": "Henry",
+      "post_id": "4b1e4272",
+      "post_subject": "SHOCKING: Celebrities Secretly Running Government",
+      "behavior": "verify_then_share",
+      "details": {
+        "from_agent": "Grace",
+        "confidence": 0.739,
+        "trust_modifier": 0.654,
+        "agent_type": "influencer",
+        "job_role": "hr_manager",
+        "post_truth": "false",
+        "post_category": "gossip",
+        "emotional_intensity": 0.9
+      }
+    },
+    {
+      "timestamp": "2026-03-24T10:37:51.284428",
+      "tick": 1,
+      "event_type": "post_received",
+      "agent_id": "agent_9",
+      "agent_name": "Jack",
+      "post_id": "4b1e4272",
+      "post_subject": "SHOCKING: Celebrities Secretly Running Government",
+      "behavior": "ignore",
+      "details": {
+        "from_agent": "Grace",
+        "confidence": 0.346,
+        "trust_modifier": 0.654,
+        "agent_type": "lurker",
+        "job_role": "tester",
+        "post_truth": "false",
+        "post_category": "gossip",
+        "emotional_intensity": 0.9
+      }
+    },
+    {
+      "timestamp": "2026-03-24T10:37:51.284469",
+      "tick": 1,
+      "event_type": "post_received",
+      "agent_id": "agent_12",
+      "agent_name": "Mia",
+      "post_id": "4b1e4272",
+      "post_subject": "SHOCKING: Celebrities Secretly Running Government",
+      "behavior": "verify_then_ignore",
+      "details": {
+        "from_agent": "Grace",
+        "confidence": 0.0,
+        "trust_modifier": 0.654,
+        "agent_type": "skeptic",
+        "job_role": "sales_rep",
+        "post_truth": "false",
+        "post_category": "gossip",
+        "emotional_intensity": 0.9
+      }
+    },
+    {
+      "timestamp": "2026-03-24T10:37:51.284482",
+      "tick": 1,
+      "event_type": "post_received",
+      "agent_id": "agent_0",
+      "agent_name": "Alice",
+      "post_id": "612f22a6",
+      "post_subject": "10 Movies That Will Make You Cry",
+      "behavior": "share_immediately",
+      "details": {
+        "from_agent": "Henry",
+        "confidence": 1.0,
+        "trust_modifier": 0.667,
+        "agent_type": "immediate_sharer",
+        "job_role": "developer",
+        "post_truth": "true",
+        "post_category": "entertainment",
+        "emotional_intensity": 0.5
+      }
+    },
+    {
+      "timestamp": "2026-03-24T10:37:51.284498",
+      "tick": 1,
+      "event_type": "post_received",
+      "agent_id": "agent_2",
+      "agent_name": "Charlie",
+      "post_id": "612f22a6",
+      "post_subject": "10 Movies That Will Make You Cry",
+      "behavior": "ignore",
+      "details": {
+        "from_agent": "Henry",
+        "confidence": 0.26,
+        "trust_modifier": 0.667,
+        "agent_type": "cautious_sharer",
+        "job_role": "tester",
+        "post_truth": "true",
+        "post_category": "entertainment",
+        "emotional_intensity": 0.5
+      }
+    },
+    {
+      "timestamp": "2026-03-24T10:37:51.284511",
+      "tick": 1,
+      "event_type": "post_received",
+      "agent_id": "agent_4",
+      "agent_name": "Eve",
+      "post_id": "612f22a6",
+      "post_subject": "10 Movies That Will Make You Cry",
+      "behavior": "verify_then_ignore",
+      "details": {
+        "from_agent": "Henry",
+        "confidence": 0.032,
+        "trust_modifier": 0.667,
+        "agent_type": "skeptic",
+        "job_role": "designer",
+        "post_truth": "true",
+        "post_category": "entertainment",
+        "emotional_intensity": 0.5
+      }
+    },
+    {
+      "timestamp": "2026-03-24T10:37:51.587287",
+      "tick": 2,
+      "event_type": "post_received",
+      "agent_id": "agent_8",
+      "agent_name": "Ivy",
+      "post_id": "612f22a6",
+      "post_subject": "10 Movies That Will Make You Cry",
+      "behavior": "ignore",
+      "details": {
+        "from_agent": "Henry",
+        "confidence": 0.223,
+        "trust_modifier": 0.667,
+        "agent_type": "lurker",
+        "job_role": "developer",
+        "post_truth": "true",
+        "post_category": "entertainment",
+        "emotional_intensity": 0.5
+      }
+    },
+    {
+      "timestamp": "2026-03-24T10:37:51.587351",
+      "tick": 2,
+      "event_type": "post_received",
+      "agent_id": "agent_12",
+      "agent_name": "Mia",
+      "post_id": "612f22a6",
+      "post_subject": "10 Movies That Will Make You Cry",
+      "behavior": "verify_then_ignore",
+      "details": {
+        "from_agent": "Henry",
+        "confidence": 0.127,
+        "trust_modifier": 0.667,
+        "agent_type": "skeptic",
+        "job_role": "sales_rep",
+        "post_truth": "true",
+        "post_category": "entertainment",
+        "emotional_intensity": 0.5
+      }
+    },
+    {
+      "timestamp": "2026-03-24T10:37:51.587370",
+      "tick": 2,
+      "event_type": "post_received",
+      "agent_id": "agent_0",
+      "agent_name": "Alice",
+      "post_id": "83b3c8d3",
+      "post_subject": "Celebrity Couple Spotted at Local Restaurant",
+      "behavior": "verify_then_share",
+      "details": {
+        "from_agent": "Diana",
+        "confidence": 1.0,
+        "trust_modifier": 0.577,
+        "agent_type": "immediate_sharer",
+        "job_role": "developer",
+        "post_truth": "unverified",
+        "post_category": "gossip",
+        "emotional_intensity": 0.6
+      }
+    },
+    {
+      "timestamp": "2026-03-24T10:37:51.587388",
+      "tick": 2,
+      "event_type": "post_received",
+      "agent_id": "agent_1",
+      "agent_name": "Bob",
+      "post_id": "83b3c8d3",
+      "post_subject": "Celebrity Couple Spotted at Local Restaurant",
+      "behavior": "share_immediately",
+      "details": {
+        "from_agent": "Diana",
+        "confidence": 1.0,
+        "trust_modifier": 0.577,
+        "agent_type": "immediate_sharer",
+        "job_role": "project_manager",
+        "post_truth": "unverified",
+        "post_category": "gossip",
+        "emotional_intensity": 0.6
+      }
+    },
+    {
+      "timestamp": "2026-03-24T10:37:51.587402",
+      "tick": 2,
+      "event_type": "post_received",
+      "agent_id": "agent_2",
+      "agent_name": "Charlie",
+      "post_id": "83b3c8d3",
+      "post_subject": "Celebrity Couple Spotted at Local Restaurant",
+      "behavior": "verify_then_ignore",
+      "details": {
+        "from_agent": "Diana",
+        "confidence": 0.05,
+        "trust_modifier": 0.577,
+        "agent_type": "cautious_sharer",
+        "job_role": "tester",
+        "post_truth": "unverified",
+        "post_category": "gossip",
+        "emotional_intensity": 0.6
+      }
+    },
+    {
+      "timestamp": "2026-03-24T10:37:51.890671",
+      "tick": 3,
+      "event_type": "post_received",
+      "agent_id": "agent_7",
+      "agent_name": "Henry",
+      "post_id": "83b3c8d3",
+      "post_subject": "Celebrity Couple Spotted at Local Restaurant",
+      "behavior": "verify_then_ignore",
+      "details": {
+        "from_agent": "Diana",
+        "confidence": 0.367,
+        "trust_modifier": 0.577,
+        "agent_type": "influencer",
+        "job_role": "hr_manager",
+        "post_truth": "unverified",
+        "post_category": "gossip",
+        "emotional_intensity": 0.6
+      }
+    },
+    {
+      "timestamp": "2026-03-24T10:37:51.890739",
+      "tick": 3,
+      "event_type": "post_received",
+      "agent_id": "agent_8",
+      "agent_name": "Ivy",
+      "post_id": "83b3c8d3",
+      "post_subject": "Celebrity Couple Spotted at Local Restaurant",
+      "behavior": "flag_as_suspicious",
+      "details": {
+        "from_agent": "Diana",
+        "confidence": 0.413,
+        "trust_modifier": 0.577,
+        "agent_type": "lurker",
+        "job_role": "developer",
+        "post_truth": "unverified",
+        "post_category": "gossip",
+        "emotional_intensity": 0.6
+      }
+    },
+    {
+      "timestamp": "2026-03-24T10:37:51.890765",
+      "tick": 3,
+      "event_type": "post_received",
+      "agent_id": "agent_9",
+      "agent_name": "Jack",
+      "post_id": "83b3c8d3",
+      "post_subject": "Celebrity Couple Spotted at Local Restaurant",
+      "behavior": "ignore",
+      "details": {
+        "from_agent": "Diana",
+        "confidence": 0.326,
+        "trust_modifier": 0.577,
+        "agent_type": "lurker",
+        "job_role": "tester",
+        "post_truth": "unverified",
+        "post_category": "gossip",
+        "emotional_intensity": 0.6
+      }
+    },
+    {
+      "timestamp": "2026-03-24T10:37:51.890788",
+      "tick": 3,
+      "event_type": "post_received",
+      "agent_id": "agent_10",
+      "agent_name": "Kate",
+      "post_id": "83b3c8d3",
+      "post_subject": "Celebrity Couple Spotted at Local Restaurant",
+      "behavior": "verify_then_ignore",
+      "details": {
+        "from_agent": "Diana",
+        "confidence": 0.135,
+        "trust_modifier": 0.577,
+        "agent_type": "cautious_sharer",
+        "job_role": "project_manager",
+        "post_truth": "unverified",
+        "post_category": "gossip",
+        "emotional_intensity": 0.6
+      }
+    },
+    {
+      "timestamp": "2026-03-24T10:37:51.890809",
+      "tick": 3,
+      "event_type": "post_received",
+      "agent_id": "agent_12",
+      "agent_name": "Mia",
+      "post_id": "83b3c8d3",
+      "post_subject": "Celebrity Couple Spotted at Local Restaurant",
+      "behavior": "verify_then_ignore",
+      "details": {
+        "from_agent": "Diana",
+        "confidence": 0.514,
+        "trust_modifier": 0.577,
+        "agent_type": "skeptic",
+        "job_role": "sales_rep",
+        "post_truth": "unverified",
+        "post_category": "gossip",
+        "emotional_intensity": 0.6
+      }
+    },
+    {
+      "timestamp": "2026-03-24T10:37:52.199682",
+      "tick": 4,
+      "event_type": "post_received",
+      "agent_id": "agent_4",
+      "agent_name": "Eve",
+      "post_id": "fbf8a5fc",
+      "post_subject": "Local Library Announces Summer Reading Program",
+      "behavior": "verify_then_ignore",
+      "details": {
+        "from_agent": "Frank",
+        "confidence": 0.0,
+        "trust_modifier": 0.544,
+        "agent_type": "skeptic",
+        "job_role": "designer",
+        "post_truth": "true",
+        "post_category": "news",
+        "emotional_intensity": 0.2
+      }
+    },
+    {
+      "timestamp": "2026-03-24T10:37:52.199743",
+      "tick": 4,
+      "event_type": "post_received",
+      "agent_id": "agent_10",
+      "agent_name": "Kate",
+      "post_id": "fbf8a5fc",
+      "post_subject": "Local Library Announces Summer Reading Program",
+      "behavior": "verify_then_ignore",
+      "details": {
+        "from_agent": "Frank",
+        "confidence": 0.578,
+        "trust_modifier": 0.544,
+        "agent_type": "cautious_sharer",
+        "job_role": "project_manager",
+        "post_truth": "true",
+        "post_category": "news",
+        "emotional_intensity": 0.2
+      }
+    },
+    {
+      "timestamp": "2026-03-24T10:37:52.199765",
+      "tick": 4,
+      "event_type": "post_received",
+      "agent_id": "agent_3",
+      "agent_name": "Diana",
+      "post_id": "4547913f",
+      "post_subject": "Scientists Discover New Species in Deep Ocean",
+      "behavior": "verify_then_ignore",
+      "details": {
+        "from_agent": "Eve",
+        "confidence": 0.424,
+        "trust_modifier": 0.548,
+        "agent_type": "cautious_sharer",
+        "job_role": "janitor",
+        "post_truth": "true",
+        "post_category": "science",
+        "emotional_intensity": 0.5
+      }
+    },
+    {
+      "timestamp": "2026-03-24T10:37:52.199783",
+      "tick": 4,
+      "event_type": "post_received",
+      "agent_id": "agent_5",
+      "agent_name": "Frank",
+      "post_id": "4547913f",
+      "post_subject": "Scientists Discover New Species in Deep Ocean",
+      "behavior": "ignore",
+      "details": {
+        "from_agent": "Eve",
+        "confidence": 0.213,
+        "trust_modifier": 0.548,
+        "agent_type": "skeptic",
+        "job_role": "intern",
+        "post_truth": "true",
+        "post_category": "science",
+        "emotional_intensity": 0.5
+      }
+    },
+    {
+      "timestamp": "2026-03-24T10:37:52.199802",
+      "tick": 4,
+      "event_type": "post_received",
+      "agent_id": "agent_6",
+      "agent_name": "Grace",
+      "post_id": "4547913f",
+      "post_subject": "Scientists Discover New Species in Deep Ocean",
+      "behavior": "verify_then_ignore",
+      "details": {
+        "from_agent": "Eve",
+        "confidence": 0.0,
+        "trust_modifier": 0.548,
+        "agent_type": "influencer",
+        "job_role": "sales_rep",
+        "post_truth": "true",
+        "post_category": "science",
+        "emotional_intensity": 0.5
+      }
+    },
+    {
+      "timestamp": "2026-03-24T10:37:52.506862",
+      "tick": 5,
+      "event_type": "post_received",
+      "agent_id": "agent_9",
+      "agent_name": "Jack",
+      "post_id": "4547913f",
+      "post_subject": "Scientists Discover New Species in Deep Ocean",
+      "behavior": "verify_then_ignore",
+      "details": {
+        "from_agent": "Eve",
+        "confidence": 0.292,
+        "trust_modifier": 0.548,
+        "agent_type": "lurker",
+        "job_role": "tester",
+        "post_truth": "true",
+        "post_category": "science",
+        "emotional_intensity": 0.5
+      }
+    },
+    {
+      "timestamp": "2026-03-24T10:37:52.506926",
+      "tick": 5,
+      "event_type": "post_received",
+      "agent_id": "agent_12",
+      "agent_name": "Mia",
+      "post_id": "4547913f",
+      "post_subject": "Scientists Discover New Species in Deep Ocean",
+      "behavior": "verify_then_ignore",
+      "details": {
+        "from_agent": "Eve",
+        "confidence": 0.275,
+        "trust_modifier": 0.548,
+        "agent_type": "skeptic",
+        "job_role": "sales_rep",
+        "post_truth": "true",
+        "post_category": "science",
+        "emotional_intensity": 0.5
+      }
+    },
+    {
+      "timestamp": "2026-03-24T10:37:52.506965",
+      "tick": 5,
+      "event_type": "post_received",
+      "agent_id": "agent_4",
+      "agent_name": "Eve",
+      "post_id": "1646a165",
+      "post_subject": "Breaking: Alien Contact Confirmed by Government",
+      "behavior": "verify_then_ignore",
+      "details": {
+        "from_agent": "Mia",
+        "confidence": 0.485,
+        "trust_modifier": 0.494,
+        "agent_type": "skeptic",
+        "job_role": "designer",
+        "post_truth": "false",
+        "post_category": "news",
+        "emotional_intensity": 0.85
+      }
+    },
+    {
+      "timestamp": "2026-03-24T10:37:52.506981",
+      "tick": 5,
+      "event_type": "post_received",
+      "agent_id": "agent_8",
+      "agent_name": "Ivy",
+      "post_id": "1646a165",
+      "post_subject": "Breaking: Alien Contact Confirmed by Government",
+      "behavior": "verify_then_ignore",
+      "details": {
+        "from_agent": "Mia",
+        "confidence": 0.261,
+        "trust_modifier": 0.494,
+        "agent_type": "lurker",
+        "job_role": "developer",
+        "post_truth": "false",
+        "post_category": "news",
+        "emotional_intensity": 0.85
+      }
+    },
+    {
+      "timestamp": "2026-03-24T10:37:52.506994",
+      "tick": 5,
+      "event_type": "post_received",
+      "agent_id": "agent_4",
+      "agent_name": "Eve",
+      "post_id": "2cec3fba",
+      "post_subject": "New Technology Promises to Change Everything",
+      "behavior": "verify_then_ignore",
+      "details": {
+        "from_agent": "Mia",
+        "confidence": 0.095,
+        "trust_modifier": 0.494,
+        "agent_type": "skeptic",
+        "job_role": "designer",
+        "post_truth": "mixed",
+        "post_category": "science",
+        "emotional_intensity": 0.6
+      }
+    },
+    {
+      "timestamp": "2026-03-24T10:37:52.825243",
+      "tick": 6,
+      "event_type": "post_received",
+      "agent_id": "agent_8",
+      "agent_name": "Ivy",
+      "post_id": "2cec3fba",
+      "post_subject": "New Technology Promises to Change Everything",
+      "behavior": "verify_then_ignore",
+      "details": {
+        "from_agent": "Mia",
+        "confidence": 0.108,
+        "trust_modifier": 0.494,
+        "agent_type": "lurker",
+        "job_role": "developer",
+        "post_truth": "mixed",
+        "post_category": "science",
+        "emotional_intensity": 0.6
+      }
+    },
+    {
+      "timestamp": "2026-03-24T10:37:52.825331",
+      "tick": 6,
+      "event_type": "post_received",
+      "agent_id": "agent_2",
+      "agent_name": "Charlie",
+      "post_id": "d7752d59",
+      "post_subject": "Climate Change: What They're Not Telling You",
+      "behavior": "ignore",
+      "details": {
+        "from_agent": "Leo",
+        "confidence": 0.245,
+        "trust_modifier": 0.563,
+        "agent_type": "cautious_sharer",
+        "job_role": "tester",
+        "post_truth": "mixed",
+        "post_category": "politics",
+        "emotional_intensity": 0.7
+      }
+    },
+    {
+      "timestamp": "2026-03-24T10:37:52.825365",
+      "tick": 6,
+      "event_type": "post_received",
+      "agent_id": "agent_5",
+      "agent_name": "Frank",
+      "post_id": "d7752d59",
+      "post_subject": "Climate Change: What They're Not Telling You",
+      "behavior": "flag_as_suspicious",
+      "details": {
+        "from_agent": "Leo",
+        "confidence": 0.357,
+        "trust_modifier": 0.563,
+        "agent_type": "skeptic",
+        "job_role": "intern",
+        "post_truth": "mixed",
+        "post_category": "politics",
+        "emotional_intensity": 0.7
+      }
+    },
+    {
+      "timestamp": "2026-03-24T10:37:52.825385",
+      "tick": 6,
+      "event_type": "post_received",
+      "agent_id": "agent_7",
+      "agent_name": "Henry",
+      "post_id": "d7752d59",
+      "post_subject": "Climate Change: What They're Not Telling You",
+      "behavior": "share_immediately",
+      "details": {
+        "from_agent": "Leo",
+        "confidence": 0.613,
+        "trust_modifier": 0.563,
+        "agent_type": "influencer",
+        "job_role": "hr_manager",
+        "post_truth": "mixed",
+        "post_category": "politics",
+        "emotional_intensity": 0.7
+      }
+    },
+    {
+      "timestamp": "2026-03-24T10:37:52.825412",
+      "tick": 6,
+      "event_type": "post_received",
+      "agent_id": "agent_12",
+      "agent_name": "Mia",
+      "post_id": "d7752d59",
+      "post_subject": "Climate Change: What They're Not Telling You",
+      "behavior": "ignore",
+      "details": {
+        "from_agent": "Leo",
+        "confidence": 0.021,
+        "trust_modifier": 0.563,
+        "agent_type": "skeptic",
+        "job_role": "sales_rep",
+        "post_truth": "mixed",
+        "post_category": "politics",
+        "emotional_intensity": 0.7
+      }
+    },
+    {
+      "timestamp": "2026-03-24T10:37:53.131441",
+      "tick": 7,
+      "event_type": "post_received",
+      "agent_id": "agent_10",
+      "agent_name": "Kate",
+      "post_id": "4b1e4272",
+      "post_subject": "SHOCKING: Celebrities Secretly Running Government",
+      "behavior": "verify_then_ignore",
+      "details": {
+        "from_agent": "Alice",
+        "confidence": 0.172,
+        "trust_modifier": 0.498,
+        "agent_type": "cautious_sharer",
+        "job_role": "project_manager",
+        "post_truth": "false",
+        "post_category": "gossip",
+        "emotional_intensity": 0.9
+      }
+    },
+    {
+      "timestamp": "2026-03-24T10:37:53.131547",
+      "tick": 7,
+      "event_type": "post_received",
+      "agent_id": "agent_8",
+      "agent_name": "Ivy",
+      "post_id": "4b1e4272",
+      "post_subject": "SHOCKING: Celebrities Secretly Running Government",
+      "behavior": "ignore",
+      "details": {
+        "from_agent": "Henry",
+        "confidence": 0.29,
+        "trust_modifier": 0.667,
+        "agent_type": "lurker",
+        "job_role": "developer",
+        "post_truth": "false",
+        "post_category": "gossip",
+        "emotional_intensity": 0.9
+      }
+    },
+    {
+      "timestamp": "2026-03-24T10:37:53.131573",
+      "tick": 7,
+      "event_type": "post_received",
+      "agent_id": "agent_10",
+      "agent_name": "Kate",
+      "post_id": "612f22a6",
+      "post_subject": "10 Movies That Will Make You Cry",
+      "behavior": "verify_then_ignore",
+      "details": {
+        "from_agent": "Alice",
+        "confidence": 0.428,
+        "trust_modifier": 0.498,
+        "agent_type": "cautious_sharer",
+        "job_role": "project_manager",
+        "post_truth": "true",
+        "post_category": "entertainment",
+        "emotional_intensity": 0.5
+      }
+    },
+    {
+      "timestamp": "2026-03-24T10:37:53.447210",
+      "tick": 8,
+      "event_type": "post_received",
+      "agent_id": "agent_0",
+      "agent_name": "Alice",
+      "post_id": "d7752d59",
+      "post_subject": "Climate Change: What They're Not Telling You",
+      "behavior": "verify_then_ignore",
+      "details": {
+        "from_agent": "Henry",
+        "confidence": 0.226,
+        "trust_modifier": 0.667,
+        "agent_type": "immediate_sharer",
+        "job_role": "developer",
+        "post_truth": "mixed",
+        "post_category": "politics",
+        "emotional_intensity": 0.7
+      }
+    },
+    {
+      "timestamp": "2026-03-24T10:37:53.447278",
+      "tick": 8,
+      "event_type": "post_received",
+      "agent_id": "agent_4",
+      "agent_name": "Eve",
+      "post_id": "d7752d59",
+      "post_subject": "Climate Change: What They're Not Telling You",
+      "behavior": "verify_then_ignore",
+      "details": {
+        "from_agent": "Henry",
+        "confidence": 0.0,
+        "trust_modifier": 0.667,
+        "agent_type": "skeptic",
+        "job_role": "designer",
+        "post_truth": "mixed",
+        "post_category": "politics",
+        "emotional_intensity": 0.7
+      }
+    },
+    {
+      "timestamp": "2026-03-24T10:37:53.447317",
+      "tick": 8,
+      "event_type": "post_received",
+      "agent_id": "agent_8",
+      "agent_name": "Ivy",
+      "post_id": "d7752d59",
+      "post_subject": "Climate Change: What They're Not Telling You",
+      "behavior": "verify_then_ignore",
+      "details": {
+        "from_agent": "Henry",
+        "confidence": 0.231,
+        "trust_modifier": 0.667,
+        "agent_type": "lurker",
+        "job_role": "developer",
+        "post_truth": "mixed",
+        "post_category": "politics",
+        "emotional_intensity": 0.7
+      }
+    }
+  ],
+  "final_report": {
+    "simulation_info": {
+      "state": "completed",
+      "total_ticks": 24,
+      "total_events": 41,
+      "has_office": false
+    },
+    "network_stats": {
+      "total_agents": 13,
+      "total_connections": 56,
+      "avg_connections_per_agent": 4.31,
+      "agent_type_distribution": {
+        "immediate_sharer": 3,
+        "cautious_sharer": 3,
+        "skeptic": 3,
+        "influencer": 2,
+        "lurker": 2
+      },
+      "most_influential": [
+        {
+          "name": "Diana",
+          "influence": 0.591031057370815,
+          "followers": 8
+        },
+        {
+          "name": "Grace",
+          "influence": 0.8451284848724757,
+          "followers": 7
+        },
+        {
+          "name": "Charlie",
+          "influence": 0.4096233258633968,
+          "followers": 6
+        }
+      ]
+    },
+    "simulation_stats": {
+      "total_ticks": 24,
+      "total_posts": 8,
+      "total_shares": 6,
+      "total_flags": 4,
+      "true_posts_shared": 1,
+      "false_posts_shared": 2,
+      "true_false_ratio": 0.5,
+      "avg_spread_time": 0.0
+    },
+    "post_stats": [
+      {
+        "id": "4b1e4272",
+        "subject": "SHOCKING: Celebrities Secretly Running Government",
+        "category": "gossip",
+        "truth_value": "false",
+        "emotional_intensity": 0.9,
+        "share_count": 2,
+        "reach_count": 10,
+        "flagged_count": 2,
+        "virality_score": 0.22000000000000003,
+        "deception_score": 0.5,
+        "spread_depth": 2
+      },
+      {
+        "id": "612f22a6",
+        "subject": "10 Movies That Will Make You Cry",
+        "category": "entertainment",
+        "truth_value": "true",
+        "emotional_intensity": 0.5,
+        "share_count": 1,
+        "reach_count": 7,
+        "flagged_count": 0,
+        "virality_score": 0.15285714285714286,
+        "deception_score": 0.0,
+        "spread_depth": 1
+      },
+      {
+        "id": "83b3c8d3",
+        "subject": "Celebrity Couple Spotted at Local Restaurant",
+        "category": "gossip",
+        "truth_value": "unverified",
+        "emotional_intensity": 0.6,
+        "share_count": 2,
+        "reach_count": 9,
+        "flagged_count": 1,
+        "virality_score": 0.24222222222222223,
+        "deception_score": 0.3333333333333333,
+        "spread_depth": 2
+      },
+      {
+        "id": "fbf8a5fc",
+        "subject": "Local Library Announces Summer Reading Program",
+        "category": "news",
+        "truth_value": "true",
+        "emotional_intensity": 0.2,
+        "share_count": 0,
+        "reach_count": 3,
+        "flagged_count": 0,
+        "virality_score": 0.0,
+        "deception_score": 0.0,
+        "spread_depth": 0
+      },
+      {
+        "id": "4547913f",
+        "subject": "Scientists Discover New Species in Deep Ocean",
+        "category": "science",
+        "truth_value": "true",
+        "emotional_intensity": 0.5,
+        "share_count": 0,
+        "reach_count": 6,
+        "flagged_count": 0,
+        "virality_score": 0.0,
+        "deception_score": 0.0,
+        "spread_depth": 0
+      },
+      {
+        "id": "1646a165",
+        "subject": "Breaking: Alien Contact Confirmed by Government",
+        "category": "news",
+        "truth_value": "false",
+        "emotional_intensity": 0.85,
+        "share_count": 0,
+        "reach_count": 3,
+        "flagged_count": 0,
+        "virality_score": 0.0,
+        "deception_score": 0.0,
+        "spread_depth": 0
+      },
+      {
+        "id": "2cec3fba",
+        "subject": "New Technology Promises to Change Everything",
+        "category": "science",
+        "truth_value": "mixed",
+        "emotional_intensity": 0.6,
+        "share_count": 0,
+        "reach_count": 3,
+        "flagged_count": 0,
+        "virality_score": 0.0,
+        "deception_score": 0.0,
+        "spread_depth": 0
+      },
+      {
+        "id": "d7752d59",
+        "subject": "Climate Change: What They're Not Telling You",
+        "category": "politics",
+        "truth_value": "mixed",
+        "emotional_intensity": 0.7,
+        "share_count": 1,
+        "reach_count": 8,
+        "flagged_count": 1,
+        "virality_score": 0.135,
+        "deception_score": 0.5,
+        "spread_depth": 1
+      }
+    ],
+    "agent_stats": [
+      {
+        "id": "agent_0",
+        "name": "Alice",
+        "type": "immediate_sharer",
+        "job_role": "developer",
+        "influence": 0.32518698906524973,
+        "posts_seen": 4,
+        "posts_shared": 3,
+        "posts_flagged": 0,
+        "share_rate": 0.75,
+        "total_shares_received": 4,
+        "current_task": null
+      },
+      {
+        "id": "agent_1",
+        "name": "Bob",
+        "type": "immediate_sharer",
+        "job_role": "project_manager",
+        "influence": 0.33383697317512934,
+        "posts_seen": 1,
+        "posts_shared": 1,
+        "posts_flagged": 0,
+        "share_rate": 1.0,
+        "total_shares_received": 1,
+        "current_task": null
+      },
+      {
+        "id": "agent_2",
+        "name": "Charlie",
+        "type": "cautious_sharer",
+        "job_role": "tester",
+        "influence": 0.4096233258633968,
+        "posts_seen": 4,
+        "posts_shared": 0,
+        "posts_flagged": 0,
+        "share_rate": 0.0,
+        "total_shares_received": 4,
+        "current_task": null
+      },
+      {
+        "id": "agent_3",
+        "name": "Diana",
+        "type": "cautious_sharer",
+        "job_role": "janitor",
+        "influence": 0.591031057370815,
+        "posts_seen": 2,
+        "posts_shared": 0,
+        "posts_flagged": 0,
+        "share_rate": 0.0,
+        "total_shares_received": 1,
+        "current_task": null
+      },
+      {
+        "id": "agent_4",
+        "name": "Eve",
+        "type": "skeptic",
+        "job_role": "designer",
+        "influence": 0.4930287554172878,
+        "posts_seen": 7,
+        "posts_shared": 0,
+        "posts_flagged": 1,
+        "share_rate": 0.0,
+        "total_shares_received": 6,
+        "current_task": null
+      },
+      {
+        "id": "agent_5",
+        "name": "Frank",
+        "type": "skeptic",
+        "job_role": "intern",
+        "influence": 0.47879476776291696,
+        "posts_seen": 4,
+        "posts_shared": 0,
+        "posts_flagged": 2,
+        "share_rate": 0.0,
+        "total_shares_received": 3,
+        "current_task": null
+      },
+      {
+        "id": "agent_6",
+        "name": "Grace",
+        "type": "influencer",
+        "job_role": "sales_rep",
+        "influence": 0.8451284848724757,
+        "posts_seen": 2,
+        "posts_shared": 0,
+        "posts_flagged": 0,
+        "share_rate": 0.0,
+        "total_shares_received": 1,
+        "current_task": null
+      },
+      {
+        "id": "agent_7",
+        "name": "Henry",
+        "type": "influencer",
+        "job_role": "hr_manager",
+        "influence": 0.8896299619010154,
+        "posts_seen": 4,
+        "posts_shared": 2,
+        "posts_flagged": 0,
+        "share_rate": 0.5,
+        "total_shares_received": 3,
+        "current_task": null
+      },
+      {
+        "id": "agent_8",
+        "name": "Ivy",
+        "type": "lurker",
+        "job_role": "developer",
+        "influence": 0.16453820836914446,
+        "posts_seen": 6,
+        "posts_shared": 0,
+        "posts_flagged": 1,
+        "share_rate": 0.0,
+        "total_shares_received": 6,
+        "current_task": null
+      },
+      {
+        "id": "agent_9",
+        "name": "Jack",
+        "type": "lurker",
+        "job_role": "tester",
+        "influence": 0.11869265709533149,
+        "posts_seen": 3,
+        "posts_shared": 0,
+        "posts_flagged": 0,
+        "share_rate": 0.0,
+        "total_shares_received": 3,
+        "current_task": null
+      },
+      {
+        "id": "agent_10",
+        "name": "Kate",
+        "type": "cautious_sharer",
+        "job_role": "project_manager",
+        "influence": 0.4457974398624513,
+        "posts_seen": 4,
+        "posts_shared": 0,
+        "posts_flagged": 0,
+        "share_rate": 0.0,
+        "total_shares_received": 4,
+        "current_task": null
+      },
+      {
+        "id": "agent_11",
+        "name": "Leo",
+        "type": "immediate_sharer",
+        "job_role": "designer",
+        "influence": 0.5417218391547829,
+        "posts_seen": 1,
+        "posts_shared": 0,
+        "posts_flagged": 0,
+        "share_rate": 0.0,
+        "total_shares_received": 0,
+        "current_task": null
+      },
+      {
+        "id": "agent_12",
+        "name": "Mia",
+        "type": "skeptic",
+        "job_role": "sales_rep",
+        "influence": 0.3146494445415975,
+        "posts_seen": 7,
+        "posts_shared": 0,
+        "posts_flagged": 0,
+        "share_rate": 0.0,
+        "total_shares_received": 5,
+        "current_task": null
+      }
+    ]
+  }
+}

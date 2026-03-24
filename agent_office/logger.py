@@ -146,9 +146,16 @@ class SimulationLogger:
         # Format behavior
         behavior_display = event.behavior.replace("_", " ").upper()
         
-        # Format agent type
+        # Format agent info - include job_role if available
         agent_type = event.details.get("agent_type", "unknown")
+        job_role = event.details.get("job_role")
         post_truth = event.details.get("post_truth", "unknown")
+        
+        # Build agent display string
+        if job_role:
+            agent_display = f"{agent_type} | {job_role}"
+        else:
+            agent_display = agent_type
         
         # Truth indicator
         truth_indicator = self._get_truth_indicator(post_truth)
@@ -161,7 +168,7 @@ class SimulationLogger:
             f"{self._colorize(tick_str, Colors.CYAN)} "
             f"{self._colorize(time_str_short, Colors.BLUE)} "
             f"{self._colorize(event.agent_name, Colors.BOLD)} "
-            f"({agent_type}) → "
+            f"({agent_display}) → "
             f"{self._colorize(behavior_display, color)} "
             f"{truth_indicator} "
             f'"{event.post_subject[:40]}..."'
@@ -239,7 +246,13 @@ class SimulationLogger:
             
             print(self._colorize("\n👥 Agent Statistics:", Colors.HEADER + Colors.BOLD))
             for agent_stats in sorted(report.get('agent_stats', []), key=lambda x: x['posts_shared'], reverse=True)[:5]:
-                print(f"   {agent_stats['name']} ({agent_stats['type']})")
+                # Include job_role in display if available
+                job_role = agent_stats.get('job_role')
+                if job_role:
+                    agent_display = f"{agent_stats['type']} | {job_role}"
+                else:
+                    agent_display = agent_stats['type']
+                print(f"   {agent_stats['name']} ({agent_display})")
                 print(f"       Shared: {agent_stats['posts_shared']}, Seen: {agent_stats['posts_seen']}, "
                       f"Rate: {agent_stats['share_rate']:.2f}")
         

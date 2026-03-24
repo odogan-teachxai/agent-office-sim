@@ -1,0 +1,1533 @@
+{
+  "metadata": {
+    "start_time": "2026-03-24T10:37:11.117058",
+    "log_file": "output/simulation_20260324_103711.json",
+    "end_time": "2026-03-24T10:37:19.654385"
+  },
+  "events": [
+    {
+      "timestamp": "2026-03-24T10:37:11.117830",
+      "tick": 0,
+      "event_type": "post_received",
+      "agent_id": "agent_1",
+      "agent_name": "Bob",
+      "post_id": "0b122cd5",
+      "post_subject": "SHOCKING: Celebrities Secretly Running Government",
+      "behavior": "share_immediately",
+      "details": {
+        "from_agent": "Grace",
+        "confidence": 1.0,
+        "trust_modifier": 0.675,
+        "agent_type": "immediate_sharer",
+        "job_role": null,
+        "post_truth": "false",
+        "post_category": "gossip",
+        "emotional_intensity": 0.9
+      }
+    },
+    {
+      "timestamp": "2026-03-24T10:37:11.117868",
+      "tick": 0,
+      "event_type": "post_received",
+      "agent_id": "agent_3",
+      "agent_name": "Diana",
+      "post_id": "0b122cd5",
+      "post_subject": "SHOCKING: Celebrities Secretly Running Government",
+      "behavior": "flag_as_suspicious",
+      "details": {
+        "from_agent": "Grace",
+        "confidence": 0.568,
+        "trust_modifier": 0.675,
+        "agent_type": "cautious_sharer",
+        "job_role": null,
+        "post_truth": "false",
+        "post_category": "gossip",
+        "emotional_intensity": 0.9
+      }
+    },
+    {
+      "timestamp": "2026-03-24T10:37:11.117886",
+      "tick": 0,
+      "event_type": "post_received",
+      "agent_id": "agent_7",
+      "agent_name": "Henry",
+      "post_id": "0b122cd5",
+      "post_subject": "SHOCKING: Celebrities Secretly Running Government",
+      "behavior": "share_immediately",
+      "details": {
+        "from_agent": "Grace",
+        "confidence": 0.613,
+        "trust_modifier": 0.675,
+        "agent_type": "influencer",
+        "job_role": null,
+        "post_truth": "false",
+        "post_category": "gossip",
+        "emotional_intensity": 0.9
+      }
+    },
+    {
+      "timestamp": "2026-03-24T10:37:11.117902",
+      "tick": 0,
+      "event_type": "post_received",
+      "agent_id": "agent_9",
+      "agent_name": "Jack",
+      "post_id": "0b122cd5",
+      "post_subject": "SHOCKING: Celebrities Secretly Running Government",
+      "behavior": "ignore",
+      "details": {
+        "from_agent": "Grace",
+        "confidence": 0.492,
+        "trust_modifier": 0.675,
+        "agent_type": "lurker",
+        "job_role": null,
+        "post_truth": "false",
+        "post_category": "gossip",
+        "emotional_intensity": 0.9
+      }
+    },
+    {
+      "timestamp": "2026-03-24T10:37:11.117914",
+      "tick": 0,
+      "event_type": "post_received",
+      "agent_id": "agent_11",
+      "agent_name": "Leo",
+      "post_id": "0b122cd5",
+      "post_subject": "SHOCKING: Celebrities Secretly Running Government",
+      "behavior": "share_immediately",
+      "details": {
+        "from_agent": "Grace",
+        "confidence": 1.0,
+        "trust_modifier": 0.675,
+        "agent_type": "immediate_sharer",
+        "job_role": null,
+        "post_truth": "false",
+        "post_category": "gossip",
+        "emotional_intensity": 0.9
+      }
+    },
+    {
+      "timestamp": "2026-03-24T10:37:11.421042",
+      "tick": 1,
+      "event_type": "post_received",
+      "agent_id": "agent_0",
+      "agent_name": "Alice",
+      "post_id": "f0e1ef35",
+      "post_subject": "Miracle Cure Found - Doctors Don't Want You to Know",
+      "behavior": "share_immediately",
+      "details": {
+        "from_agent": "Henry",
+        "confidence": 1.0,
+        "trust_modifier": 0.647,
+        "agent_type": "immediate_sharer",
+        "job_role": null,
+        "post_truth": "false",
+        "post_category": "health",
+        "emotional_intensity": 0.95
+      }
+    },
+    {
+      "timestamp": "2026-03-24T10:37:11.421106",
+      "tick": 1,
+      "event_type": "post_received",
+      "agent_id": "agent_2",
+      "agent_name": "Charlie",
+      "post_id": "f0e1ef35",
+      "post_subject": "Miracle Cure Found - Doctors Don't Want You to Know",
+      "behavior": "flag_as_suspicious",
+      "details": {
+        "from_agent": "Henry",
+        "confidence": 0.53,
+        "trust_modifier": 0.647,
+        "agent_type": "cautious_sharer",
+        "job_role": null,
+        "post_truth": "false",
+        "post_category": "health",
+        "emotional_intensity": 0.95
+      }
+    },
+    {
+      "timestamp": "2026-03-24T10:37:11.421127",
+      "tick": 1,
+      "event_type": "post_received",
+      "agent_id": "agent_4",
+      "agent_name": "Eve",
+      "post_id": "f0e1ef35",
+      "post_subject": "Miracle Cure Found - Doctors Don't Want You to Know",
+      "behavior": "flag_as_suspicious",
+      "details": {
+        "from_agent": "Henry",
+        "confidence": 0.606,
+        "trust_modifier": 0.647,
+        "agent_type": "skeptic",
+        "job_role": null,
+        "post_truth": "false",
+        "post_category": "health",
+        "emotional_intensity": 0.95
+      }
+    },
+    {
+      "timestamp": "2026-03-24T10:37:11.421143",
+      "tick": 1,
+      "event_type": "post_received",
+      "agent_id": "agent_5",
+      "agent_name": "Frank",
+      "post_id": "f0e1ef35",
+      "post_subject": "Miracle Cure Found - Doctors Don't Want You to Know",
+      "behavior": "verify_then_ignore",
+      "details": {
+        "from_agent": "Henry",
+        "confidence": 0.0,
+        "trust_modifier": 0.647,
+        "agent_type": "skeptic",
+        "job_role": null,
+        "post_truth": "false",
+        "post_category": "health",
+        "emotional_intensity": 0.95
+      }
+    },
+    {
+      "timestamp": "2026-03-24T10:37:11.421156",
+      "tick": 1,
+      "event_type": "post_received",
+      "agent_id": "agent_11",
+      "agent_name": "Leo",
+      "post_id": "f0e1ef35",
+      "post_subject": "Miracle Cure Found - Doctors Don't Want You to Know",
+      "behavior": "share_immediately",
+      "details": {
+        "from_agent": "Henry",
+        "confidence": 0.981,
+        "trust_modifier": 0.647,
+        "agent_type": "immediate_sharer",
+        "job_role": null,
+        "post_truth": "false",
+        "post_category": "health",
+        "emotional_intensity": 0.95
+      }
+    },
+    {
+      "timestamp": "2026-03-24T10:37:11.725172",
+      "tick": 2,
+      "event_type": "post_received",
+      "agent_id": "agent_1",
+      "agent_name": "Bob",
+      "post_id": "e6475830",
+      "post_subject": "Celebrity Couple Spotted at Local Restaurant",
+      "behavior": "verify_then_share",
+      "details": {
+        "from_agent": "Grace",
+        "confidence": 0.992,
+        "trust_modifier": 0.675,
+        "agent_type": "immediate_sharer",
+        "job_role": null,
+        "post_truth": "unverified",
+        "post_category": "gossip",
+        "emotional_intensity": 0.6
+      }
+    },
+    {
+      "timestamp": "2026-03-24T10:37:11.725216",
+      "tick": 2,
+      "event_type": "post_received",
+      "agent_id": "agent_3",
+      "agent_name": "Diana",
+      "post_id": "e6475830",
+      "post_subject": "Celebrity Couple Spotted at Local Restaurant",
+      "behavior": "flag_as_suspicious",
+      "details": {
+        "from_agent": "Grace",
+        "confidence": 0.448,
+        "trust_modifier": 0.675,
+        "agent_type": "cautious_sharer",
+        "job_role": null,
+        "post_truth": "unverified",
+        "post_category": "gossip",
+        "emotional_intensity": 0.6
+      }
+    },
+    {
+      "timestamp": "2026-03-24T10:37:11.725227",
+      "tick": 2,
+      "event_type": "post_received",
+      "agent_id": "agent_7",
+      "agent_name": "Henry",
+      "post_id": "e6475830",
+      "post_subject": "Celebrity Couple Spotted at Local Restaurant",
+      "behavior": "ignore",
+      "details": {
+        "from_agent": "Grace",
+        "confidence": 0.557,
+        "trust_modifier": 0.675,
+        "agent_type": "influencer",
+        "job_role": null,
+        "post_truth": "unverified",
+        "post_category": "gossip",
+        "emotional_intensity": 0.6
+      }
+    },
+    {
+      "timestamp": "2026-03-24T10:37:11.725237",
+      "tick": 2,
+      "event_type": "post_received",
+      "agent_id": "agent_9",
+      "agent_name": "Jack",
+      "post_id": "e6475830",
+      "post_subject": "Celebrity Couple Spotted at Local Restaurant",
+      "behavior": "verify_then_ignore",
+      "details": {
+        "from_agent": "Grace",
+        "confidence": 0.477,
+        "trust_modifier": 0.675,
+        "agent_type": "lurker",
+        "job_role": null,
+        "post_truth": "unverified",
+        "post_category": "gossip",
+        "emotional_intensity": 0.6
+      }
+    },
+    {
+      "timestamp": "2026-03-24T10:37:11.725244",
+      "tick": 2,
+      "event_type": "post_received",
+      "agent_id": "agent_11",
+      "agent_name": "Leo",
+      "post_id": "e6475830",
+      "post_subject": "Celebrity Couple Spotted at Local Restaurant",
+      "behavior": "share_immediately",
+      "details": {
+        "from_agent": "Grace",
+        "confidence": 0.997,
+        "trust_modifier": 0.675,
+        "agent_type": "immediate_sharer",
+        "job_role": null,
+        "post_truth": "unverified",
+        "post_category": "gossip",
+        "emotional_intensity": 0.6
+      }
+    },
+    {
+      "timestamp": "2026-03-24T10:37:12.039789",
+      "tick": 3,
+      "event_type": "post_received",
+      "agent_id": "agent_3",
+      "agent_name": "Diana",
+      "post_id": "f3c4e491",
+      "post_subject": "Breaking: Alien Contact Confirmed by Government",
+      "behavior": "ignore",
+      "details": {
+        "from_agent": "Charlie",
+        "confidence": 0.382,
+        "trust_modifier": 0.601,
+        "agent_type": "cautious_sharer",
+        "job_role": null,
+        "post_truth": "false",
+        "post_category": "news",
+        "emotional_intensity": 0.85
+      }
+    },
+    {
+      "timestamp": "2026-03-24T10:37:12.039840",
+      "tick": 3,
+      "event_type": "post_received",
+      "agent_id": "agent_10",
+      "agent_name": "Kate",
+      "post_id": "f3c4e491",
+      "post_subject": "Breaking: Alien Contact Confirmed by Government",
+      "behavior": "flag_as_suspicious",
+      "details": {
+        "from_agent": "Charlie",
+        "confidence": 0.419,
+        "trust_modifier": 0.601,
+        "agent_type": "cautious_sharer",
+        "job_role": null,
+        "post_truth": "false",
+        "post_category": "news",
+        "emotional_intensity": 0.85
+      }
+    },
+    {
+      "timestamp": "2026-03-24T10:37:12.039858",
+      "tick": 3,
+      "event_type": "post_received",
+      "agent_id": "agent_0",
+      "agent_name": "Alice",
+      "post_id": "400a74cd",
+      "post_subject": "10 Movies That Will Make You Cry",
+      "behavior": "share_immediately",
+      "details": {
+        "from_agent": "Jack",
+        "confidence": 1.0,
+        "trust_modifier": 0.442,
+        "agent_type": "immediate_sharer",
+        "job_role": null,
+        "post_truth": "true",
+        "post_category": "entertainment",
+        "emotional_intensity": 0.5
+      }
+    },
+    {
+      "timestamp": "2026-03-24T10:37:12.039882",
+      "tick": 3,
+      "event_type": "post_received",
+      "agent_id": "agent_7",
+      "agent_name": "Henry",
+      "post_id": "400a74cd",
+      "post_subject": "10 Movies That Will Make You Cry",
+      "behavior": "verify_then_share",
+      "details": {
+        "from_agent": "Jack",
+        "confidence": 0.728,
+        "trust_modifier": 0.442,
+        "agent_type": "influencer",
+        "job_role": null,
+        "post_truth": "true",
+        "post_category": "entertainment",
+        "emotional_intensity": 0.5
+      }
+    },
+    {
+      "timestamp": "2026-03-24T10:37:12.039900",
+      "tick": 3,
+      "event_type": "post_received",
+      "agent_id": "agent_0",
+      "agent_name": "Alice",
+      "post_id": "3f7fa2f0",
+      "post_subject": "Local Library Announces Summer Reading Program",
+      "behavior": "verify_then_share",
+      "details": {
+        "from_agent": "Bob",
+        "confidence": 0.932,
+        "trust_modifier": 0.554,
+        "agent_type": "immediate_sharer",
+        "job_role": null,
+        "post_truth": "true",
+        "post_category": "news",
+        "emotional_intensity": 0.2
+      }
+    },
+    {
+      "timestamp": "2026-03-24T10:37:12.355699",
+      "tick": 4,
+      "event_type": "post_received",
+      "agent_id": "agent_2",
+      "agent_name": "Charlie",
+      "post_id": "3f7fa2f0",
+      "post_subject": "Local Library Announces Summer Reading Program",
+      "behavior": "verify_then_ignore",
+      "details": {
+        "from_agent": "Bob",
+        "confidence": 0.0,
+        "trust_modifier": 0.554,
+        "agent_type": "cautious_sharer",
+        "job_role": null,
+        "post_truth": "true",
+        "post_category": "news",
+        "emotional_intensity": 0.2
+      }
+    },
+    {
+      "timestamp": "2026-03-24T10:37:12.355733",
+      "tick": 4,
+      "event_type": "post_received",
+      "agent_id": "agent_4",
+      "agent_name": "Eve",
+      "post_id": "3f7fa2f0",
+      "post_subject": "Local Library Announces Summer Reading Program",
+      "behavior": "verify_then_ignore",
+      "details": {
+        "from_agent": "Bob",
+        "confidence": 0.0,
+        "trust_modifier": 0.554,
+        "agent_type": "skeptic",
+        "job_role": null,
+        "post_truth": "true",
+        "post_category": "news",
+        "emotional_intensity": 0.2
+      }
+    },
+    {
+      "timestamp": "2026-03-24T10:37:12.355744",
+      "tick": 4,
+      "event_type": "post_received",
+      "agent_id": "agent_0",
+      "agent_name": "Alice",
+      "post_id": "4b215274",
+      "post_subject": "New Study Shows Benefits of Regular Exercise",
+      "behavior": "share_immediately",
+      "details": {
+        "from_agent": "Henry",
+        "confidence": 0.966,
+        "trust_modifier": 0.647,
+        "agent_type": "immediate_sharer",
+        "job_role": null,
+        "post_truth": "true",
+        "post_category": "health",
+        "emotional_intensity": 0.3
+      }
+    },
+    {
+      "timestamp": "2026-03-24T10:37:12.355758",
+      "tick": 4,
+      "event_type": "post_received",
+      "agent_id": "agent_2",
+      "agent_name": "Charlie",
+      "post_id": "4b215274",
+      "post_subject": "New Study Shows Benefits of Regular Exercise",
+      "behavior": "verify_then_ignore",
+      "details": {
+        "from_agent": "Henry",
+        "confidence": 0.445,
+        "trust_modifier": 0.647,
+        "agent_type": "cautious_sharer",
+        "job_role": null,
+        "post_truth": "true",
+        "post_category": "health",
+        "emotional_intensity": 0.3
+      }
+    },
+    {
+      "timestamp": "2026-03-24T10:37:12.355780",
+      "tick": 4,
+      "event_type": "post_received",
+      "agent_id": "agent_4",
+      "agent_name": "Eve",
+      "post_id": "4b215274",
+      "post_subject": "New Study Shows Benefits of Regular Exercise",
+      "behavior": "verify_then_ignore",
+      "details": {
+        "from_agent": "Henry",
+        "confidence": 0.193,
+        "trust_modifier": 0.647,
+        "agent_type": "skeptic",
+        "job_role": null,
+        "post_truth": "true",
+        "post_category": "health",
+        "emotional_intensity": 0.3
+      }
+    },
+    {
+      "timestamp": "2026-03-24T10:37:12.659549",
+      "tick": 5,
+      "event_type": "post_received",
+      "agent_id": "agent_5",
+      "agent_name": "Frank",
+      "post_id": "4b215274",
+      "post_subject": "New Study Shows Benefits of Regular Exercise",
+      "behavior": "verify_then_ignore",
+      "details": {
+        "from_agent": "Henry",
+        "confidence": 0.154,
+        "trust_modifier": 0.647,
+        "agent_type": "skeptic",
+        "job_role": null,
+        "post_truth": "true",
+        "post_category": "health",
+        "emotional_intensity": 0.3
+      }
+    },
+    {
+      "timestamp": "2026-03-24T10:37:12.659608",
+      "tick": 5,
+      "event_type": "post_received",
+      "agent_id": "agent_11",
+      "agent_name": "Leo",
+      "post_id": "4b215274",
+      "post_subject": "New Study Shows Benefits of Regular Exercise",
+      "behavior": "share_immediately",
+      "details": {
+        "from_agent": "Henry",
+        "confidence": 0.853,
+        "trust_modifier": 0.647,
+        "agent_type": "immediate_sharer",
+        "job_role": null,
+        "post_truth": "true",
+        "post_category": "health",
+        "emotional_intensity": 0.3
+      }
+    },
+    {
+      "timestamp": "2026-03-24T10:37:12.659637",
+      "tick": 5,
+      "event_type": "post_received",
+      "agent_id": "agent_1",
+      "agent_name": "Bob",
+      "post_id": "7223bbc9",
+      "post_subject": "Scientists Discover New Species in Deep Ocean",
+      "behavior": "verify_then_share",
+      "details": {
+        "from_agent": "Frank",
+        "confidence": 0.87,
+        "trust_modifier": 0.531,
+        "agent_type": "immediate_sharer",
+        "job_role": null,
+        "post_truth": "true",
+        "post_category": "science",
+        "emotional_intensity": 0.5
+      }
+    },
+    {
+      "timestamp": "2026-03-24T10:37:12.659654",
+      "tick": 5,
+      "event_type": "post_received",
+      "agent_id": "agent_2",
+      "agent_name": "Charlie",
+      "post_id": "7223bbc9",
+      "post_subject": "Scientists Discover New Species in Deep Ocean",
+      "behavior": "verify_then_ignore",
+      "details": {
+        "from_agent": "Frank",
+        "confidence": 0.454,
+        "trust_modifier": 0.531,
+        "agent_type": "cautious_sharer",
+        "job_role": null,
+        "post_truth": "true",
+        "post_category": "science",
+        "emotional_intensity": 0.5
+      }
+    },
+    {
+      "timestamp": "2026-03-24T10:37:12.659667",
+      "tick": 5,
+      "event_type": "post_received",
+      "agent_id": "agent_3",
+      "agent_name": "Diana",
+      "post_id": "7223bbc9",
+      "post_subject": "Scientists Discover New Species in Deep Ocean",
+      "behavior": "flag_as_suspicious",
+      "details": {
+        "from_agent": "Frank",
+        "confidence": 0.0,
+        "trust_modifier": 0.531,
+        "agent_type": "cautious_sharer",
+        "job_role": null,
+        "post_truth": "true",
+        "post_category": "science",
+        "emotional_intensity": 0.5
+      }
+    },
+    {
+      "timestamp": "2026-03-24T10:37:12.965638",
+      "tick": 6,
+      "event_type": "post_received",
+      "agent_id": "agent_0",
+      "agent_name": "Alice",
+      "post_id": "0b122cd5",
+      "post_subject": "SHOCKING: Celebrities Secretly Running Government",
+      "behavior": "verify_then_share",
+      "details": {
+        "from_agent": "Bob",
+        "confidence": 1.0,
+        "trust_modifier": 0.554,
+        "agent_type": "immediate_sharer",
+        "job_role": null,
+        "post_truth": "false",
+        "post_category": "gossip",
+        "emotional_intensity": 0.9
+      }
+    },
+    {
+      "timestamp": "2026-03-24T10:37:12.965692",
+      "tick": 6,
+      "event_type": "post_received",
+      "agent_id": "agent_2",
+      "agent_name": "Charlie",
+      "post_id": "0b122cd5",
+      "post_subject": "SHOCKING: Celebrities Secretly Running Government",
+      "behavior": "flag_as_suspicious",
+      "details": {
+        "from_agent": "Bob",
+        "confidence": 0.599,
+        "trust_modifier": 0.554,
+        "agent_type": "cautious_sharer",
+        "job_role": null,
+        "post_truth": "false",
+        "post_category": "gossip",
+        "emotional_intensity": 0.9
+      }
+    },
+    {
+      "timestamp": "2026-03-24T10:37:12.965708",
+      "tick": 6,
+      "event_type": "post_received",
+      "agent_id": "agent_4",
+      "agent_name": "Eve",
+      "post_id": "0b122cd5",
+      "post_subject": "SHOCKING: Celebrities Secretly Running Government",
+      "behavior": "verify_then_ignore",
+      "details": {
+        "from_agent": "Bob",
+        "confidence": 0.684,
+        "trust_modifier": 0.554,
+        "agent_type": "skeptic",
+        "job_role": null,
+        "post_truth": "false",
+        "post_category": "gossip",
+        "emotional_intensity": 0.9
+      }
+    },
+    {
+      "timestamp": "2026-03-24T10:37:13.269014",
+      "tick": 7,
+      "event_type": "post_received",
+      "agent_id": "agent_5",
+      "agent_name": "Frank",
+      "post_id": "0b122cd5",
+      "post_subject": "SHOCKING: Celebrities Secretly Running Government",
+      "behavior": "verify_then_ignore",
+      "details": {
+        "from_agent": "Henry",
+        "confidence": 0.0,
+        "trust_modifier": 0.647,
+        "agent_type": "skeptic",
+        "job_role": null,
+        "post_truth": "false",
+        "post_category": "gossip",
+        "emotional_intensity": 0.9
+      }
+    },
+    {
+      "timestamp": "2026-03-24T10:37:13.571104",
+      "tick": 8,
+      "event_type": "post_received",
+      "agent_id": "agent_12",
+      "agent_name": "Mia",
+      "post_id": "0b122cd5",
+      "post_subject": "SHOCKING: Celebrities Secretly Running Government",
+      "behavior": "flag_as_suspicious",
+      "details": {
+        "from_agent": "Leo",
+        "confidence": 0.68,
+        "trust_modifier": 0.572,
+        "agent_type": "skeptic",
+        "job_role": null,
+        "post_truth": "false",
+        "post_category": "gossip",
+        "emotional_intensity": 0.9
+      }
+    },
+    {
+      "timestamp": "2026-03-24T10:37:13.571137",
+      "tick": 8,
+      "event_type": "post_received",
+      "agent_id": "agent_1",
+      "agent_name": "Bob",
+      "post_id": "f0e1ef35",
+      "post_subject": "Miracle Cure Found - Doctors Don't Want You to Know",
+      "behavior": "verify_then_share",
+      "details": {
+        "from_agent": "Leo",
+        "confidence": 0.977,
+        "trust_modifier": 0.572,
+        "agent_type": "immediate_sharer",
+        "job_role": null,
+        "post_truth": "false",
+        "post_category": "health",
+        "emotional_intensity": 0.95
+      }
+    },
+    {
+      "timestamp": "2026-03-24T10:37:13.571151",
+      "tick": 8,
+      "event_type": "post_received",
+      "agent_id": "agent_3",
+      "agent_name": "Diana",
+      "post_id": "f0e1ef35",
+      "post_subject": "Miracle Cure Found - Doctors Don't Want You to Know",
+      "behavior": "ignore",
+      "details": {
+        "from_agent": "Leo",
+        "confidence": 0.33,
+        "trust_modifier": 0.572,
+        "agent_type": "cautious_sharer",
+        "job_role": null,
+        "post_truth": "false",
+        "post_category": "health",
+        "emotional_intensity": 0.95
+      }
+    },
+    {
+      "timestamp": "2026-03-24T10:37:13.571161",
+      "tick": 8,
+      "event_type": "post_received",
+      "agent_id": "agent_6",
+      "agent_name": "Grace",
+      "post_id": "f0e1ef35",
+      "post_subject": "Miracle Cure Found - Doctors Don't Want You to Know",
+      "behavior": "verify_then_share",
+      "details": {
+        "from_agent": "Leo",
+        "confidence": 0.719,
+        "trust_modifier": 0.572,
+        "agent_type": "influencer",
+        "job_role": null,
+        "post_truth": "false",
+        "post_category": "health",
+        "emotional_intensity": 0.95
+      }
+    },
+    {
+      "timestamp": "2026-03-24T10:37:13.887989",
+      "tick": 9,
+      "event_type": "post_received",
+      "agent_id": "agent_12",
+      "agent_name": "Mia",
+      "post_id": "f0e1ef35",
+      "post_subject": "Miracle Cure Found - Doctors Don't Want You to Know",
+      "behavior": "verify_then_ignore",
+      "details": {
+        "from_agent": "Leo",
+        "confidence": 0.079,
+        "trust_modifier": 0.572,
+        "agent_type": "skeptic",
+        "job_role": null,
+        "post_truth": "false",
+        "post_category": "health",
+        "emotional_intensity": 0.95
+      }
+    },
+    {
+      "timestamp": "2026-03-24T10:37:13.888062",
+      "tick": 9,
+      "event_type": "post_received",
+      "agent_id": "agent_0",
+      "agent_name": "Alice",
+      "post_id": "e6475830",
+      "post_subject": "Celebrity Couple Spotted at Local Restaurant",
+      "behavior": "share_immediately",
+      "details": {
+        "from_agent": "Bob",
+        "confidence": 1.0,
+        "trust_modifier": 0.554,
+        "agent_type": "immediate_sharer",
+        "job_role": null,
+        "post_truth": "unverified",
+        "post_category": "gossip",
+        "emotional_intensity": 0.6
+      }
+    },
+    {
+      "timestamp": "2026-03-24T10:37:13.888079",
+      "tick": 9,
+      "event_type": "post_received",
+      "agent_id": "agent_2",
+      "agent_name": "Charlie",
+      "post_id": "e6475830",
+      "post_subject": "Celebrity Couple Spotted at Local Restaurant",
+      "behavior": "verify_then_ignore",
+      "details": {
+        "from_agent": "Bob",
+        "confidence": 0.034,
+        "trust_modifier": 0.554,
+        "agent_type": "cautious_sharer",
+        "job_role": null,
+        "post_truth": "unverified",
+        "post_category": "gossip",
+        "emotional_intensity": 0.6
+      }
+    },
+    {
+      "timestamp": "2026-03-24T10:37:13.888090",
+      "tick": 9,
+      "event_type": "post_received",
+      "agent_id": "agent_4",
+      "agent_name": "Eve",
+      "post_id": "e6475830",
+      "post_subject": "Celebrity Couple Spotted at Local Restaurant",
+      "behavior": "verify_then_ignore",
+      "details": {
+        "from_agent": "Bob",
+        "confidence": 0.0,
+        "trust_modifier": 0.554,
+        "agent_type": "skeptic",
+        "job_role": null,
+        "post_truth": "unverified",
+        "post_category": "gossip",
+        "emotional_intensity": 0.6
+      }
+    },
+    {
+      "timestamp": "2026-03-24T10:37:14.204477",
+      "tick": 10,
+      "event_type": "post_received",
+      "agent_id": "agent_5",
+      "agent_name": "Frank",
+      "post_id": "e6475830",
+      "post_subject": "Celebrity Couple Spotted at Local Restaurant",
+      "behavior": "flag_as_suspicious",
+      "details": {
+        "from_agent": "Leo",
+        "confidence": 0.532,
+        "trust_modifier": 0.572,
+        "agent_type": "skeptic",
+        "job_role": null,
+        "post_truth": "unverified",
+        "post_category": "gossip",
+        "emotional_intensity": 0.6
+      }
+    },
+    {
+      "timestamp": "2026-03-24T10:37:14.204512",
+      "tick": 10,
+      "event_type": "post_received",
+      "agent_id": "agent_12",
+      "agent_name": "Mia",
+      "post_id": "e6475830",
+      "post_subject": "Celebrity Couple Spotted at Local Restaurant",
+      "behavior": "verify_then_ignore",
+      "details": {
+        "from_agent": "Leo",
+        "confidence": 0.0,
+        "trust_modifier": 0.572,
+        "agent_type": "skeptic",
+        "job_role": null,
+        "post_truth": "unverified",
+        "post_category": "gossip",
+        "emotional_intensity": 0.6
+      }
+    },
+    {
+      "timestamp": "2026-03-24T10:37:14.204526",
+      "tick": 10,
+      "event_type": "post_received",
+      "agent_id": "agent_2",
+      "agent_name": "Charlie",
+      "post_id": "400a74cd",
+      "post_subject": "10 Movies That Will Make You Cry",
+      "behavior": "verify_then_ignore",
+      "details": {
+        "from_agent": "Henry",
+        "confidence": 0.242,
+        "trust_modifier": 0.647,
+        "agent_type": "cautious_sharer",
+        "job_role": null,
+        "post_truth": "true",
+        "post_category": "entertainment",
+        "emotional_intensity": 0.5
+      }
+    },
+    {
+      "timestamp": "2026-03-24T10:37:14.204535",
+      "tick": 10,
+      "event_type": "post_received",
+      "agent_id": "agent_4",
+      "agent_name": "Eve",
+      "post_id": "400a74cd",
+      "post_subject": "10 Movies That Will Make You Cry",
+      "behavior": "verify_then_ignore",
+      "details": {
+        "from_agent": "Henry",
+        "confidence": 0.0,
+        "trust_modifier": 0.647,
+        "agent_type": "skeptic",
+        "job_role": null,
+        "post_truth": "true",
+        "post_category": "entertainment",
+        "emotional_intensity": 0.5
+      }
+    },
+    {
+      "timestamp": "2026-03-24T10:37:14.509291",
+      "tick": 11,
+      "event_type": "post_received",
+      "agent_id": "agent_5",
+      "agent_name": "Frank",
+      "post_id": "400a74cd",
+      "post_subject": "10 Movies That Will Make You Cry",
+      "behavior": "verify_then_ignore",
+      "details": {
+        "from_agent": "Henry",
+        "confidence": 0.076,
+        "trust_modifier": 0.647,
+        "agent_type": "skeptic",
+        "job_role": null,
+        "post_truth": "true",
+        "post_category": "entertainment",
+        "emotional_intensity": 0.5
+      }
+    },
+    {
+      "timestamp": "2026-03-24T10:37:14.509322",
+      "tick": 11,
+      "event_type": "post_received",
+      "agent_id": "agent_11",
+      "agent_name": "Leo",
+      "post_id": "400a74cd",
+      "post_subject": "10 Movies That Will Make You Cry",
+      "behavior": "share_immediately",
+      "details": {
+        "from_agent": "Henry",
+        "confidence": 1.0,
+        "trust_modifier": 0.647,
+        "agent_type": "immediate_sharer",
+        "job_role": null,
+        "post_truth": "true",
+        "post_category": "entertainment",
+        "emotional_intensity": 0.5
+      }
+    },
+    {
+      "timestamp": "2026-03-24T10:37:14.509342",
+      "tick": 11,
+      "event_type": "post_received",
+      "agent_id": "agent_1",
+      "agent_name": "Bob",
+      "post_id": "4b215274",
+      "post_subject": "New Study Shows Benefits of Regular Exercise",
+      "behavior": "share_immediately",
+      "details": {
+        "from_agent": "Leo",
+        "confidence": 0.972,
+        "trust_modifier": 0.572,
+        "agent_type": "immediate_sharer",
+        "job_role": null,
+        "post_truth": "true",
+        "post_category": "health",
+        "emotional_intensity": 0.3
+      }
+    },
+    {
+      "timestamp": "2026-03-24T10:37:14.509354",
+      "tick": 11,
+      "event_type": "post_received",
+      "agent_id": "agent_3",
+      "agent_name": "Diana",
+      "post_id": "4b215274",
+      "post_subject": "New Study Shows Benefits of Regular Exercise",
+      "behavior": "verify_then_ignore",
+      "details": {
+        "from_agent": "Leo",
+        "confidence": 0.527,
+        "trust_modifier": 0.572,
+        "agent_type": "cautious_sharer",
+        "job_role": null,
+        "post_truth": "true",
+        "post_category": "health",
+        "emotional_intensity": 0.3
+      }
+    },
+    {
+      "timestamp": "2026-03-24T10:37:14.509363",
+      "tick": 11,
+      "event_type": "post_received",
+      "agent_id": "agent_6",
+      "agent_name": "Grace",
+      "post_id": "4b215274",
+      "post_subject": "New Study Shows Benefits of Regular Exercise",
+      "behavior": "verify_then_share",
+      "details": {
+        "from_agent": "Leo",
+        "confidence": 0.664,
+        "trust_modifier": 0.572,
+        "agent_type": "influencer",
+        "job_role": null,
+        "post_truth": "true",
+        "post_category": "health",
+        "emotional_intensity": 0.3
+      }
+    },
+    {
+      "timestamp": "2026-03-24T10:37:14.826755",
+      "tick": 12,
+      "event_type": "post_received",
+      "agent_id": "agent_12",
+      "agent_name": "Mia",
+      "post_id": "4b215274",
+      "post_subject": "New Study Shows Benefits of Regular Exercise",
+      "behavior": "verify_then_ignore",
+      "details": {
+        "from_agent": "Leo",
+        "confidence": 0.277,
+        "trust_modifier": 0.572,
+        "agent_type": "skeptic",
+        "job_role": null,
+        "post_truth": "true",
+        "post_category": "health",
+        "emotional_intensity": 0.3
+      }
+    },
+    {
+      "timestamp": "2026-03-24T10:37:14.826793",
+      "tick": 12,
+      "event_type": "post_received",
+      "agent_id": "agent_0",
+      "agent_name": "Alice",
+      "post_id": "7223bbc9",
+      "post_subject": "Scientists Discover New Species in Deep Ocean",
+      "behavior": "share_immediately",
+      "details": {
+        "from_agent": "Bob",
+        "confidence": 1.0,
+        "trust_modifier": 0.554,
+        "agent_type": "immediate_sharer",
+        "job_role": null,
+        "post_truth": "true",
+        "post_category": "science",
+        "emotional_intensity": 0.5
+      }
+    },
+    {
+      "timestamp": "2026-03-24T10:37:14.826816",
+      "tick": 12,
+      "event_type": "post_received",
+      "agent_id": "agent_4",
+      "agent_name": "Eve",
+      "post_id": "7223bbc9",
+      "post_subject": "Scientists Discover New Species in Deep Ocean",
+      "behavior": "verify_then_ignore",
+      "details": {
+        "from_agent": "Bob",
+        "confidence": 0.177,
+        "trust_modifier": 0.554,
+        "agent_type": "skeptic",
+        "job_role": null,
+        "post_truth": "true",
+        "post_category": "science",
+        "emotional_intensity": 0.5
+      }
+    },
+    {
+      "timestamp": "2026-03-24T10:37:14.826835",
+      "tick": 12,
+      "event_type": "post_received",
+      "agent_id": "agent_9",
+      "agent_name": "Jack",
+      "post_id": "f0e1ef35",
+      "post_subject": "Miracle Cure Found - Doctors Don't Want You to Know",
+      "behavior": "verify_then_ignore",
+      "details": {
+        "from_agent": "Grace",
+        "confidence": 0.384,
+        "trust_modifier": 0.675,
+        "agent_type": "lurker",
+        "job_role": null,
+        "post_truth": "false",
+        "post_category": "health",
+        "emotional_intensity": 0.95
+      }
+    },
+    {
+      "timestamp": "2026-03-24T10:37:15.143880",
+      "tick": 13,
+      "event_type": "post_received",
+      "agent_id": "agent_1",
+      "agent_name": "Bob",
+      "post_id": "400a74cd",
+      "post_subject": "10 Movies That Will Make You Cry",
+      "behavior": "share_immediately",
+      "details": {
+        "from_agent": "Leo",
+        "confidence": 0.986,
+        "trust_modifier": 0.572,
+        "agent_type": "immediate_sharer",
+        "job_role": null,
+        "post_truth": "true",
+        "post_category": "entertainment",
+        "emotional_intensity": 0.5
+      }
+    },
+    {
+      "timestamp": "2026-03-24T10:37:15.143929",
+      "tick": 13,
+      "event_type": "post_received",
+      "agent_id": "agent_3",
+      "agent_name": "Diana",
+      "post_id": "400a74cd",
+      "post_subject": "10 Movies That Will Make You Cry",
+      "behavior": "flag_as_suspicious",
+      "details": {
+        "from_agent": "Leo",
+        "confidence": 0.145,
+        "trust_modifier": 0.572,
+        "agent_type": "cautious_sharer",
+        "job_role": null,
+        "post_truth": "true",
+        "post_category": "entertainment",
+        "emotional_intensity": 0.5
+      }
+    },
+    {
+      "timestamp": "2026-03-24T10:37:15.143947",
+      "tick": 13,
+      "event_type": "post_received",
+      "agent_id": "agent_6",
+      "agent_name": "Grace",
+      "post_id": "400a74cd",
+      "post_subject": "10 Movies That Will Make You Cry",
+      "behavior": "verify_then_ignore",
+      "details": {
+        "from_agent": "Leo",
+        "confidence": 0.119,
+        "trust_modifier": 0.572,
+        "agent_type": "influencer",
+        "job_role": null,
+        "post_truth": "true",
+        "post_category": "entertainment",
+        "emotional_intensity": 0.5
+      }
+    },
+    {
+      "timestamp": "2026-03-24T10:37:15.143960",
+      "tick": 13,
+      "event_type": "post_received",
+      "agent_id": "agent_12",
+      "agent_name": "Mia",
+      "post_id": "400a74cd",
+      "post_subject": "10 Movies That Will Make You Cry",
+      "behavior": "verify_then_ignore",
+      "details": {
+        "from_agent": "Leo",
+        "confidence": 0.0,
+        "trust_modifier": 0.572,
+        "agent_type": "skeptic",
+        "job_role": null,
+        "post_truth": "true",
+        "post_category": "entertainment",
+        "emotional_intensity": 0.5
+      }
+    },
+    {
+      "timestamp": "2026-03-24T10:37:15.143972",
+      "tick": 13,
+      "event_type": "post_received",
+      "agent_id": "agent_9",
+      "agent_name": "Jack",
+      "post_id": "4b215274",
+      "post_subject": "New Study Shows Benefits of Regular Exercise",
+      "behavior": "verify_then_ignore",
+      "details": {
+        "from_agent": "Grace",
+        "confidence": 0.02,
+        "trust_modifier": 0.675,
+        "agent_type": "lurker",
+        "job_role": null,
+        "post_truth": "true",
+        "post_category": "health",
+        "emotional_intensity": 0.3
+      }
+    }
+  ],
+  "final_report": {
+    "simulation_info": {
+      "state": "completed",
+      "total_ticks": 29,
+      "total_events": 60,
+      "has_office": false
+    },
+    "network_stats": {
+      "total_agents": 13,
+      "total_connections": 50,
+      "avg_connections_per_agent": 3.85,
+      "agent_type_distribution": {
+        "immediate_sharer": 3,
+        "cautious_sharer": 3,
+        "skeptic": 3,
+        "influencer": 2,
+        "lurker": 2
+      },
+      "most_influential": [
+        {
+          "name": "Kate",
+          "influence": 0.6409849246099162,
+          "followers": 8
+        },
+        {
+          "name": "Diana",
+          "influence": 0.6527474862755781,
+          "followers": 7
+        },
+        {
+          "name": "Leo",
+          "influence": 0.5745281144716292,
+          "followers": 7
+        }
+      ]
+    },
+    "simulation_stats": {
+      "total_ticks": 29,
+      "total_posts": 8,
+      "total_shares": 22,
+      "total_flags": 10,
+      "true_posts_shared": 11,
+      "false_posts_shared": 8,
+      "true_false_ratio": 1.375,
+      "avg_spread_time": 6.29
+    },
+    "post_stats": [
+      {
+        "id": "0b122cd5",
+        "subject": "SHOCKING: Celebrities Secretly Running Government",
+        "category": "gossip",
+        "truth_value": "false",
+        "emotional_intensity": 0.9,
+        "share_count": 4,
+        "reach_count": 11,
+        "flagged_count": 3,
+        "virality_score": 0.4036363636363637,
+        "deception_score": 0.42857142857142855,
+        "spread_depth": 4
+      },
+      {
+        "id": "f0e1ef35",
+        "subject": "Miracle Cure Found - Doctors Don't Want You to Know",
+        "category": "health",
+        "truth_value": "false",
+        "emotional_intensity": 0.95,
+        "share_count": 4,
+        "reach_count": 11,
+        "flagged_count": 2,
+        "virality_score": 0.4036363636363637,
+        "deception_score": 0.3333333333333333,
+        "spread_depth": 4
+      },
+      {
+        "id": "e6475830",
+        "subject": "Celebrity Couple Spotted at Local Restaurant",
+        "category": "gossip",
+        "truth_value": "unverified",
+        "emotional_intensity": 0.6,
+        "share_count": 3,
+        "reach_count": 11,
+        "flagged_count": 2,
+        "virality_score": 0.30272727272727273,
+        "deception_score": 0.4,
+        "spread_depth": 3
+      },
+      {
+        "id": "f3c4e491",
+        "subject": "Breaking: Alien Contact Confirmed by Government",
+        "category": "news",
+        "truth_value": "false",
+        "emotional_intensity": 0.85,
+        "share_count": 0,
+        "reach_count": 3,
+        "flagged_count": 1,
+        "virality_score": 0.0,
+        "deception_score": 0.0,
+        "spread_depth": 0
+      },
+      {
+        "id": "400a74cd",
+        "subject": "10 Movies That Will Make You Cry",
+        "category": "entertainment",
+        "truth_value": "true",
+        "emotional_intensity": 0.5,
+        "share_count": 4,
+        "reach_count": 11,
+        "flagged_count": 1,
+        "virality_score": 0.4036363636363637,
+        "deception_score": 0.2,
+        "spread_depth": 4
+      },
+      {
+        "id": "3f7fa2f0",
+        "subject": "Local Library Announces Summer Reading Program",
+        "category": "news",
+        "truth_value": "true",
+        "emotional_intensity": 0.2,
+        "share_count": 1,
+        "reach_count": 4,
+        "flagged_count": 0,
+        "virality_score": 0.26,
+        "deception_score": 0.0,
+        "spread_depth": 1
+      },
+      {
+        "id": "4b215274",
+        "subject": "New Study Shows Benefits of Regular Exercise",
+        "category": "health",
+        "truth_value": "true",
+        "emotional_intensity": 0.3,
+        "share_count": 4,
+        "reach_count": 11,
+        "flagged_count": 0,
+        "virality_score": 0.4036363636363637,
+        "deception_score": 0.0,
+        "spread_depth": 4
+      },
+      {
+        "id": "7223bbc9",
+        "subject": "Scientists Discover New Species in Deep Ocean",
+        "category": "science",
+        "truth_value": "true",
+        "emotional_intensity": 0.5,
+        "share_count": 2,
+        "reach_count": 6,
+        "flagged_count": 1,
+        "virality_score": 0.35333333333333333,
+        "deception_score": 0.3333333333333333,
+        "spread_depth": 2
+      }
+    ],
+    "agent_stats": [
+      {
+        "id": "agent_0",
+        "name": "Alice",
+        "type": "immediate_sharer",
+        "job_role": null,
+        "influence": 0.33123410001533027,
+        "posts_seen": 7,
+        "posts_shared": 7,
+        "posts_flagged": 0,
+        "share_rate": 1.0,
+        "total_shares_received": 7,
+        "current_task": null
+      },
+      {
+        "id": "agent_1",
+        "name": "Bob",
+        "type": "immediate_sharer",
+        "job_role": null,
+        "influence": 0.5121997376895161,
+        "posts_seen": 7,
+        "posts_shared": 6,
+        "posts_flagged": 0,
+        "share_rate": 0.8571428571428571,
+        "total_shares_received": 6,
+        "current_task": null
+      },
+      {
+        "id": "agent_2",
+        "name": "Charlie",
+        "type": "cautious_sharer",
+        "job_role": null,
+        "influence": 0.6694619883834572,
+        "posts_seen": 8,
+        "posts_shared": 0,
+        "posts_flagged": 2,
+        "share_rate": 0.0,
+        "total_shares_received": 7,
+        "current_task": null
+      },
+      {
+        "id": "agent_3",
+        "name": "Diana",
+        "type": "cautious_sharer",
+        "job_role": null,
+        "influence": 0.6527474862755781,
+        "posts_seen": 7,
+        "posts_shared": 0,
+        "posts_flagged": 4,
+        "share_rate": 0.0,
+        "total_shares_received": 7,
+        "current_task": null
+      },
+      {
+        "id": "agent_4",
+        "name": "Eve",
+        "type": "skeptic",
+        "job_role": null,
+        "influence": 0.47072246076017826,
+        "posts_seen": 7,
+        "posts_shared": 0,
+        "posts_flagged": 1,
+        "share_rate": 0.0,
+        "total_shares_received": 7,
+        "current_task": null
+      },
+      {
+        "id": "agent_5",
+        "name": "Frank",
+        "type": "skeptic",
+        "job_role": null,
+        "influence": 0.43696678315667814,
+        "posts_seen": 6,
+        "posts_shared": 0,
+        "posts_flagged": 1,
+        "share_rate": 0.0,
+        "total_shares_received": 5,
+        "current_task": null
+      },
+      {
+        "id": "agent_6",
+        "name": "Grace",
+        "type": "influencer",
+        "job_role": null,
+        "influence": 0.9171812445857401,
+        "posts_seen": 5,
+        "posts_shared": 2,
+        "posts_flagged": 0,
+        "share_rate": 0.4,
+        "total_shares_received": 3,
+        "current_task": null
+      },
+      {
+        "id": "agent_7",
+        "name": "Henry",
+        "type": "influencer",
+        "job_role": null,
+        "influence": 0.8249945439546585,
+        "posts_seen": 5,
+        "posts_shared": 2,
+        "posts_flagged": 0,
+        "share_rate": 0.4,
+        "total_shares_received": 3,
+        "current_task": null
+      },
+      {
+        "id": "agent_8",
+        "name": "Ivy",
+        "type": "lurker",
+        "job_role": null,
+        "influence": 0.1321469498277864,
+        "posts_seen": 0,
+        "posts_shared": 0,
+        "posts_flagged": 0,
+        "share_rate": 0.0,
+        "total_shares_received": 0,
+        "current_task": null
+      },
+      {
+        "id": "agent_9",
+        "name": "Jack",
+        "type": "lurker",
+        "job_role": null,
+        "influence": 0.13877107976165476,
+        "posts_seen": 5,
+        "posts_shared": 0,
+        "posts_flagged": 0,
+        "share_rate": 0.0,
+        "total_shares_received": 4,
+        "current_task": null
+      },
+      {
+        "id": "agent_10",
+        "name": "Kate",
+        "type": "cautious_sharer",
+        "job_role": null,
+        "influence": 0.6409849246099162,
+        "posts_seen": 1,
+        "posts_shared": 0,
+        "posts_flagged": 1,
+        "share_rate": 0.0,
+        "total_shares_received": 1,
+        "current_task": null
+      },
+      {
+        "id": "agent_11",
+        "name": "Leo",
+        "type": "immediate_sharer",
+        "job_role": null,
+        "influence": 0.5745281144716292,
+        "posts_seen": 5,
+        "posts_shared": 5,
+        "posts_flagged": 0,
+        "share_rate": 1.0,
+        "total_shares_received": 5,
+        "current_task": null
+      },
+      {
+        "id": "agent_12",
+        "name": "Mia",
+        "type": "skeptic",
+        "job_role": null,
+        "influence": 0.3938870999135535,
+        "posts_seen": 5,
+        "posts_shared": 0,
+        "posts_flagged": 1,
+        "share_rate": 0.0,
+        "total_shares_received": 5,
+        "current_task": null
+      }
+    ]
+  }
+}

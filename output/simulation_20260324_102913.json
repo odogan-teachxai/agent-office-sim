@@ -1,0 +1,933 @@
+{
+  "metadata": {
+    "start_time": "2026-03-24T10:29:13.200580",
+    "log_file": "output/simulation_20260324_102913.json",
+    "end_time": "2026-03-24T10:29:19.047679"
+  },
+  "events": [
+    {
+      "timestamp": "2026-03-24T10:29:13.201339",
+      "tick": 0,
+      "event_type": "post_received",
+      "agent_id": "agent_0",
+      "agent_name": "Alice",
+      "post_id": "d9521865",
+      "post_subject": "Scientists Discover New Species in Deep Ocean",
+      "behavior": "share_immediately",
+      "details": {
+        "from_agent": "Grace",
+        "confidence": 0.93,
+        "trust_modifier": 0.649,
+        "agent_type": "immediate_sharer",
+        "job_role": null,
+        "post_truth": "true",
+        "post_category": "science",
+        "emotional_intensity": 0.5
+      }
+    },
+    {
+      "timestamp": "2026-03-24T10:29:13.201364",
+      "tick": 0,
+      "event_type": "post_received",
+      "agent_id": "agent_1",
+      "agent_name": "Bob",
+      "post_id": "d9521865",
+      "post_subject": "Scientists Discover New Species in Deep Ocean",
+      "behavior": "share_immediately",
+      "details": {
+        "from_agent": "Grace",
+        "confidence": 1.0,
+        "trust_modifier": 0.649,
+        "agent_type": "immediate_sharer",
+        "job_role": null,
+        "post_truth": "true",
+        "post_category": "science",
+        "emotional_intensity": 0.5
+      }
+    },
+    {
+      "timestamp": "2026-03-24T10:29:13.201381",
+      "tick": 0,
+      "event_type": "post_received",
+      "agent_id": "agent_4",
+      "agent_name": "Eve",
+      "post_id": "d9521865",
+      "post_subject": "Scientists Discover New Species in Deep Ocean",
+      "behavior": "verify_then_ignore",
+      "details": {
+        "from_agent": "Grace",
+        "confidence": 0.1,
+        "trust_modifier": 0.649,
+        "agent_type": "skeptic",
+        "job_role": null,
+        "post_truth": "true",
+        "post_category": "science",
+        "emotional_intensity": 0.5
+      }
+    },
+    {
+      "timestamp": "2026-03-24T10:29:13.201390",
+      "tick": 0,
+      "event_type": "post_received",
+      "agent_id": "agent_9",
+      "agent_name": "Jack",
+      "post_id": "d9521865",
+      "post_subject": "Scientists Discover New Species in Deep Ocean",
+      "behavior": "ignore",
+      "details": {
+        "from_agent": "Grace",
+        "confidence": 0.468,
+        "trust_modifier": 0.649,
+        "agent_type": "lurker",
+        "job_role": null,
+        "post_truth": "true",
+        "post_category": "science",
+        "emotional_intensity": 0.5
+      }
+    },
+    {
+      "timestamp": "2026-03-24T10:29:13.201398",
+      "tick": 0,
+      "event_type": "post_received",
+      "agent_id": "agent_0",
+      "agent_name": "Alice",
+      "post_id": "e6a50361",
+      "post_subject": "New Technology Promises to Change Everything",
+      "behavior": "share_immediately",
+      "details": {
+        "from_agent": "Henry",
+        "confidence": 0.874,
+        "trust_modifier": 0.654,
+        "agent_type": "immediate_sharer",
+        "job_role": null,
+        "post_truth": "mixed",
+        "post_category": "science",
+        "emotional_intensity": 0.6
+      }
+    },
+    {
+      "timestamp": "2026-03-24T10:29:13.503395",
+      "tick": 1,
+      "event_type": "post_received",
+      "agent_id": "agent_2",
+      "agent_name": "Charlie",
+      "post_id": "e6a50361",
+      "post_subject": "New Technology Promises to Change Everything",
+      "behavior": "flag_as_suspicious",
+      "details": {
+        "from_agent": "Henry",
+        "confidence": 0.121,
+        "trust_modifier": 0.654,
+        "agent_type": "cautious_sharer",
+        "job_role": null,
+        "post_truth": "mixed",
+        "post_category": "science",
+        "emotional_intensity": 0.6
+      }
+    },
+    {
+      "timestamp": "2026-03-24T10:29:13.503444",
+      "tick": 1,
+      "event_type": "post_received",
+      "agent_id": "agent_3",
+      "agent_name": "Diana",
+      "post_id": "e6a50361",
+      "post_subject": "New Technology Promises to Change Everything",
+      "behavior": "verify_then_ignore",
+      "details": {
+        "from_agent": "Henry",
+        "confidence": 0.523,
+        "trust_modifier": 0.654,
+        "agent_type": "cautious_sharer",
+        "job_role": null,
+        "post_truth": "mixed",
+        "post_category": "science",
+        "emotional_intensity": 0.6
+      }
+    },
+    {
+      "timestamp": "2026-03-24T10:29:13.503456",
+      "tick": 1,
+      "event_type": "post_received",
+      "agent_id": "agent_9",
+      "agent_name": "Jack",
+      "post_id": "e6a50361",
+      "post_subject": "New Technology Promises to Change Everything",
+      "behavior": "ignore",
+      "details": {
+        "from_agent": "Henry",
+        "confidence": 0.497,
+        "trust_modifier": 0.654,
+        "agent_type": "lurker",
+        "job_role": null,
+        "post_truth": "mixed",
+        "post_category": "science",
+        "emotional_intensity": 0.6
+      }
+    },
+    {
+      "timestamp": "2026-03-24T10:29:13.503466",
+      "tick": 1,
+      "event_type": "post_received",
+      "agent_id": "agent_1",
+      "agent_name": "Bob",
+      "post_id": "c4778114",
+      "post_subject": "Breaking: Alien Contact Confirmed by Government",
+      "behavior": "share_immediately",
+      "details": {
+        "from_agent": "Leo",
+        "confidence": 1.0,
+        "trust_modifier": 0.562,
+        "agent_type": "immediate_sharer",
+        "job_role": null,
+        "post_truth": "false",
+        "post_category": "news",
+        "emotional_intensity": 0.85
+      }
+    },
+    {
+      "timestamp": "2026-03-24T10:29:13.503485",
+      "tick": 1,
+      "event_type": "post_received",
+      "agent_id": "agent_7",
+      "agent_name": "Henry",
+      "post_id": "c4778114",
+      "post_subject": "Breaking: Alien Contact Confirmed by Government",
+      "behavior": "verify_then_ignore",
+      "details": {
+        "from_agent": "Leo",
+        "confidence": 0.38,
+        "trust_modifier": 0.562,
+        "agent_type": "influencer",
+        "job_role": null,
+        "post_truth": "false",
+        "post_category": "news",
+        "emotional_intensity": 0.85
+      }
+    },
+    {
+      "timestamp": "2026-03-24T10:29:13.817620",
+      "tick": 2,
+      "event_type": "post_received",
+      "agent_id": "agent_12",
+      "agent_name": "Mia",
+      "post_id": "c4778114",
+      "post_subject": "Breaking: Alien Contact Confirmed by Government",
+      "behavior": "verify_then_ignore",
+      "details": {
+        "from_agent": "Leo",
+        "confidence": 0.49,
+        "trust_modifier": 0.562,
+        "agent_type": "skeptic",
+        "job_role": null,
+        "post_truth": "false",
+        "post_category": "news",
+        "emotional_intensity": 0.85
+      }
+    },
+    {
+      "timestamp": "2026-03-24T10:29:13.817654",
+      "tick": 2,
+      "event_type": "post_received",
+      "agent_id": "agent_7",
+      "agent_name": "Henry",
+      "post_id": "94e63903",
+      "post_subject": "Climate Change: What They're Not Telling You",
+      "behavior": "ignore",
+      "details": {
+        "from_agent": "Eve",
+        "confidence": 0.51,
+        "trust_modifier": 0.5,
+        "agent_type": "influencer",
+        "job_role": null,
+        "post_truth": "mixed",
+        "post_category": "politics",
+        "emotional_intensity": 0.7
+      }
+    },
+    {
+      "timestamp": "2026-03-24T10:29:13.817666",
+      "tick": 2,
+      "event_type": "post_received",
+      "agent_id": "agent_8",
+      "agent_name": "Ivy",
+      "post_id": "94e63903",
+      "post_subject": "Climate Change: What They're Not Telling You",
+      "behavior": "verify_then_ignore",
+      "details": {
+        "from_agent": "Eve",
+        "confidence": 0.346,
+        "trust_modifier": 0.5,
+        "agent_type": "lurker",
+        "job_role": null,
+        "post_truth": "mixed",
+        "post_category": "politics",
+        "emotional_intensity": 0.7
+      }
+    },
+    {
+      "timestamp": "2026-03-24T10:29:13.817675",
+      "tick": 2,
+      "event_type": "post_received",
+      "agent_id": "agent_2",
+      "agent_name": "Charlie",
+      "post_id": "be46e1cd",
+      "post_subject": "New Study Shows Benefits of Regular Exercise",
+      "behavior": "ignore",
+      "details": {
+        "from_agent": "Jack",
+        "confidence": 0.539,
+        "trust_modifier": 0.458,
+        "agent_type": "cautious_sharer",
+        "job_role": null,
+        "post_truth": "true",
+        "post_category": "health",
+        "emotional_intensity": 0.3
+      }
+    },
+    {
+      "timestamp": "2026-03-24T10:29:14.131735",
+      "tick": 3,
+      "event_type": "post_received",
+      "agent_id": "agent_7",
+      "agent_name": "Henry",
+      "post_id": "d9521865",
+      "post_subject": "Scientists Discover New Species in Deep Ocean",
+      "behavior": "share_immediately",
+      "details": {
+        "from_agent": "Alice",
+        "confidence": 0.567,
+        "trust_modifier": 0.504,
+        "agent_type": "influencer",
+        "job_role": null,
+        "post_truth": "true",
+        "post_category": "science",
+        "emotional_intensity": 0.5
+      }
+    },
+    {
+      "timestamp": "2026-03-24T10:29:14.131793",
+      "tick": 3,
+      "event_type": "post_received",
+      "agent_id": "agent_8",
+      "agent_name": "Ivy",
+      "post_id": "d9521865",
+      "post_subject": "Scientists Discover New Species in Deep Ocean",
+      "behavior": "verify_then_ignore",
+      "details": {
+        "from_agent": "Alice",
+        "confidence": 0.388,
+        "trust_modifier": 0.504,
+        "agent_type": "lurker",
+        "job_role": null,
+        "post_truth": "true",
+        "post_category": "science",
+        "emotional_intensity": 0.5
+      }
+    },
+    {
+      "timestamp": "2026-03-24T10:29:14.131804",
+      "tick": 3,
+      "event_type": "post_received",
+      "agent_id": "agent_2",
+      "agent_name": "Charlie",
+      "post_id": "d9521865",
+      "post_subject": "Scientists Discover New Species in Deep Ocean",
+      "behavior": "verify_then_ignore",
+      "details": {
+        "from_agent": "Bob",
+        "confidence": 0.536,
+        "trust_modifier": 0.492,
+        "agent_type": "cautious_sharer",
+        "job_role": null,
+        "post_truth": "true",
+        "post_category": "science",
+        "emotional_intensity": 0.5
+      }
+    },
+    {
+      "timestamp": "2026-03-24T10:29:14.131812",
+      "tick": 3,
+      "event_type": "post_received",
+      "agent_id": "agent_1",
+      "agent_name": "Bob",
+      "post_id": "e6a50361",
+      "post_subject": "New Technology Promises to Change Everything",
+      "behavior": "share_immediately",
+      "details": {
+        "from_agent": "Alice",
+        "confidence": 0.999,
+        "trust_modifier": 0.504,
+        "agent_type": "immediate_sharer",
+        "job_role": null,
+        "post_truth": "mixed",
+        "post_category": "science",
+        "emotional_intensity": 0.6
+      }
+    },
+    {
+      "timestamp": "2026-03-24T10:29:14.445938",
+      "tick": 4,
+      "event_type": "post_received",
+      "agent_id": "agent_8",
+      "agent_name": "Ivy",
+      "post_id": "e6a50361",
+      "post_subject": "New Technology Promises to Change Everything",
+      "behavior": "ignore",
+      "details": {
+        "from_agent": "Alice",
+        "confidence": 0.347,
+        "trust_modifier": 0.504,
+        "agent_type": "lurker",
+        "job_role": null,
+        "post_truth": "mixed",
+        "post_category": "science",
+        "emotional_intensity": 0.6
+      }
+    },
+    {
+      "timestamp": "2026-03-24T10:29:14.445990",
+      "tick": 4,
+      "event_type": "post_received",
+      "agent_id": "agent_2",
+      "agent_name": "Charlie",
+      "post_id": "c4778114",
+      "post_subject": "Breaking: Alien Contact Confirmed by Government",
+      "behavior": "verify_then_ignore",
+      "details": {
+        "from_agent": "Bob",
+        "confidence": 0.354,
+        "trust_modifier": 0.492,
+        "agent_type": "cautious_sharer",
+        "job_role": null,
+        "post_truth": "false",
+        "post_category": "news",
+        "emotional_intensity": 0.85
+      }
+    },
+    {
+      "timestamp": "2026-03-24T10:29:14.446003",
+      "tick": 4,
+      "event_type": "post_received",
+      "agent_id": "agent_6",
+      "agent_name": "Grace",
+      "post_id": "c4778114",
+      "post_subject": "Breaking: Alien Contact Confirmed by Government",
+      "behavior": "share_immediately",
+      "details": {
+        "from_agent": "Bob",
+        "confidence": 0.77,
+        "trust_modifier": 0.492,
+        "agent_type": "influencer",
+        "job_role": null,
+        "post_truth": "false",
+        "post_category": "news",
+        "emotional_intensity": 0.85
+      }
+    },
+    {
+      "timestamp": "2026-03-24T10:29:14.446021",
+      "tick": 4,
+      "event_type": "post_received",
+      "agent_id": "agent_8",
+      "agent_name": "Ivy",
+      "post_id": "c4778114",
+      "post_subject": "Breaking: Alien Contact Confirmed by Government",
+      "behavior": "ignore",
+      "details": {
+        "from_agent": "Bob",
+        "confidence": 0.35,
+        "trust_modifier": 0.492,
+        "agent_type": "lurker",
+        "job_role": null,
+        "post_truth": "false",
+        "post_category": "news",
+        "emotional_intensity": 0.85
+      }
+    },
+    {
+      "timestamp": "2026-03-24T10:29:14.749548",
+      "tick": 5,
+      "event_type": "post_received",
+      "agent_id": "agent_3",
+      "agent_name": "Diana",
+      "post_id": "d9521865",
+      "post_subject": "Scientists Discover New Species in Deep Ocean",
+      "behavior": "verify_then_share",
+      "details": {
+        "from_agent": "Henry",
+        "confidence": 0.689,
+        "trust_modifier": 0.654,
+        "agent_type": "cautious_sharer",
+        "job_role": null,
+        "post_truth": "true",
+        "post_category": "science",
+        "emotional_intensity": 0.5
+      }
+    },
+    {
+      "timestamp": "2026-03-24T10:29:14.749601",
+      "tick": 5,
+      "event_type": "post_received",
+      "agent_id": "agent_6",
+      "agent_name": "Grace",
+      "post_id": "e6a50361",
+      "post_subject": "New Technology Promises to Change Everything",
+      "behavior": "verify_then_ignore",
+      "details": {
+        "from_agent": "Bob",
+        "confidence": 0.095,
+        "trust_modifier": 0.492,
+        "agent_type": "influencer",
+        "job_role": null,
+        "post_truth": "mixed",
+        "post_category": "science",
+        "emotional_intensity": 0.6
+      }
+    },
+    {
+      "timestamp": "2026-03-24T10:29:14.749614",
+      "tick": 5,
+      "event_type": "post_received",
+      "agent_id": "agent_0",
+      "agent_name": "Alice",
+      "post_id": "c4778114",
+      "post_subject": "Breaking: Alien Contact Confirmed by Government",
+      "behavior": "share_immediately",
+      "details": {
+        "from_agent": "Grace",
+        "confidence": 1.0,
+        "trust_modifier": 0.649,
+        "agent_type": "immediate_sharer",
+        "job_role": null,
+        "post_truth": "false",
+        "post_category": "news",
+        "emotional_intensity": 0.85
+      }
+    },
+    {
+      "timestamp": "2026-03-24T10:29:14.749639",
+      "tick": 5,
+      "event_type": "post_received",
+      "agent_id": "agent_4",
+      "agent_name": "Eve",
+      "post_id": "c4778114",
+      "post_subject": "Breaking: Alien Contact Confirmed by Government",
+      "behavior": "flag_as_suspicious",
+      "details": {
+        "from_agent": "Grace",
+        "confidence": 0.487,
+        "trust_modifier": 0.649,
+        "agent_type": "skeptic",
+        "job_role": null,
+        "post_truth": "false",
+        "post_category": "news",
+        "emotional_intensity": 0.85
+      }
+    },
+    {
+      "timestamp": "2026-03-24T10:29:15.065099",
+      "tick": 6,
+      "event_type": "post_received",
+      "agent_id": "agent_9",
+      "agent_name": "Jack",
+      "post_id": "c4778114",
+      "post_subject": "Breaking: Alien Contact Confirmed by Government",
+      "behavior": "ignore",
+      "details": {
+        "from_agent": "Grace",
+        "confidence": 0.52,
+        "trust_modifier": 0.649,
+        "agent_type": "lurker",
+        "job_role": null,
+        "post_truth": "false",
+        "post_category": "news",
+        "emotional_intensity": 0.85
+      }
+    },
+    {
+      "timestamp": "2026-03-24T10:29:15.065137",
+      "tick": 6,
+      "event_type": "post_received",
+      "agent_id": "agent_10",
+      "agent_name": "Kate",
+      "post_id": "d9521865",
+      "post_subject": "Scientists Discover New Species in Deep Ocean",
+      "behavior": "verify_then_ignore",
+      "details": {
+        "from_agent": "Diana",
+        "confidence": 0.0,
+        "trust_modifier": 0.602,
+        "agent_type": "cautious_sharer",
+        "job_role": null,
+        "post_truth": "true",
+        "post_category": "science",
+        "emotional_intensity": 0.5
+      }
+    },
+    {
+      "timestamp": "2026-03-24T10:29:15.065148",
+      "tick": 6,
+      "event_type": "post_received",
+      "agent_id": "agent_11",
+      "agent_name": "Leo",
+      "post_id": "d9521865",
+      "post_subject": "Scientists Discover New Species in Deep Ocean",
+      "behavior": "share_immediately",
+      "details": {
+        "from_agent": "Diana",
+        "confidence": 0.957,
+        "trust_modifier": 0.602,
+        "agent_type": "immediate_sharer",
+        "job_role": null,
+        "post_truth": "true",
+        "post_category": "science",
+        "emotional_intensity": 0.5
+      }
+    },
+    {
+      "timestamp": "2026-03-24T10:29:15.379467",
+      "tick": 7,
+      "event_type": "post_received",
+      "agent_id": "agent_12",
+      "agent_name": "Mia",
+      "post_id": "d9521865",
+      "post_subject": "Scientists Discover New Species in Deep Ocean",
+      "behavior": "verify_then_ignore",
+      "details": {
+        "from_agent": "Leo",
+        "confidence": 0.201,
+        "trust_modifier": 0.562,
+        "agent_type": "skeptic",
+        "job_role": null,
+        "post_truth": "true",
+        "post_category": "science",
+        "emotional_intensity": 0.5
+      }
+    }
+  ],
+  "final_report": {
+    "simulation_info": {
+      "state": "completed",
+      "total_ticks": 23,
+      "total_events": 30,
+      "has_office": false
+    },
+    "network_stats": {
+      "total_agents": 13,
+      "total_connections": 39,
+      "avg_connections_per_agent": 3.0,
+      "agent_type_distribution": {
+        "immediate_sharer": 3,
+        "cautious_sharer": 3,
+        "skeptic": 3,
+        "influencer": 2,
+        "lurker": 2
+      },
+      "most_influential": [
+        {
+          "name": "Diana",
+          "influence": 0.6733346107390963,
+          "followers": 8
+        },
+        {
+          "name": "Kate",
+          "influence": 0.5720389703659016,
+          "followers": 5
+        },
+        {
+          "name": "Grace",
+          "influence": 0.8312380363489414,
+          "followers": 4
+        }
+      ]
+    },
+    "simulation_stats": {
+      "total_ticks": 23,
+      "total_posts": 8,
+      "total_shares": 10,
+      "total_flags": 2,
+      "true_posts_shared": 5,
+      "false_posts_shared": 3,
+      "true_false_ratio": 1.6666666666666667,
+      "avg_spread_time": 4.33
+    },
+    "post_stats": [
+      {
+        "id": "d9521865",
+        "subject": "Scientists Discover New Species in Deep Ocean",
+        "category": "science",
+        "truth_value": "true",
+        "emotional_intensity": 0.5,
+        "share_count": 5,
+        "reach_count": 12,
+        "flagged_count": 0,
+        "virality_score": 0.46666666666666673,
+        "deception_score": 0.0,
+        "spread_depth": 5
+      },
+      {
+        "id": "e6a50361",
+        "subject": "New Technology Promises to Change Everything",
+        "category": "science",
+        "truth_value": "mixed",
+        "emotional_intensity": 0.6,
+        "share_count": 2,
+        "reach_count": 8,
+        "flagged_count": 1,
+        "virality_score": 0.27,
+        "deception_score": 0.3333333333333333,
+        "spread_depth": 2
+      },
+      {
+        "id": "7d2fdad3",
+        "subject": "Local Library Announces Summer Reading Program",
+        "category": "news",
+        "truth_value": "true",
+        "emotional_intensity": 0.2,
+        "share_count": 0,
+        "reach_count": 1,
+        "flagged_count": 0,
+        "virality_score": 0.0,
+        "deception_score": 0.0,
+        "spread_depth": 0
+      },
+      {
+        "id": "f0c913e9",
+        "subject": "Celebrity Couple Spotted at Local Restaurant",
+        "category": "gossip",
+        "truth_value": "unverified",
+        "emotional_intensity": 0.6,
+        "share_count": 0,
+        "reach_count": 1,
+        "flagged_count": 0,
+        "virality_score": 0.0,
+        "deception_score": 0.0,
+        "spread_depth": 0
+      },
+      {
+        "id": "c4778114",
+        "subject": "Breaking: Alien Contact Confirmed by Government",
+        "category": "news",
+        "truth_value": "false",
+        "emotional_intensity": 0.85,
+        "share_count": 3,
+        "reach_count": 10,
+        "flagged_count": 1,
+        "virality_score": 0.33,
+        "deception_score": 0.25,
+        "spread_depth": 3
+      },
+      {
+        "id": "919099e9",
+        "subject": "Miracle Cure Found - Doctors Don't Want You to Know",
+        "category": "health",
+        "truth_value": "false",
+        "emotional_intensity": 0.95,
+        "share_count": 0,
+        "reach_count": 1,
+        "flagged_count": 0,
+        "virality_score": 0.0,
+        "deception_score": 0.0,
+        "spread_depth": 0
+      },
+      {
+        "id": "94e63903",
+        "subject": "Climate Change: What They're Not Telling You",
+        "category": "politics",
+        "truth_value": "mixed",
+        "emotional_intensity": 0.7,
+        "share_count": 0,
+        "reach_count": 3,
+        "flagged_count": 0,
+        "virality_score": 0.0,
+        "deception_score": 0.0,
+        "spread_depth": 0
+      },
+      {
+        "id": "be46e1cd",
+        "subject": "New Study Shows Benefits of Regular Exercise",
+        "category": "health",
+        "truth_value": "true",
+        "emotional_intensity": 0.3,
+        "share_count": 0,
+        "reach_count": 2,
+        "flagged_count": 0,
+        "virality_score": 0.0,
+        "deception_score": 0.0,
+        "spread_depth": 0
+      }
+    ],
+    "agent_stats": [
+      {
+        "id": "agent_0",
+        "name": "Alice",
+        "type": "immediate_sharer",
+        "job_role": null,
+        "influence": 0.34827187168265844,
+        "posts_seen": 3,
+        "posts_shared": 3,
+        "posts_flagged": 0,
+        "share_rate": 1.0,
+        "total_shares_received": 3,
+        "current_task": null
+      },
+      {
+        "id": "agent_1",
+        "name": "Bob",
+        "type": "immediate_sharer",
+        "job_role": null,
+        "influence": 0.3081049950081149,
+        "posts_seen": 3,
+        "posts_shared": 3,
+        "posts_flagged": 0,
+        "share_rate": 1.0,
+        "total_shares_received": 3,
+        "current_task": null
+      },
+      {
+        "id": "agent_2",
+        "name": "Charlie",
+        "type": "cautious_sharer",
+        "job_role": null,
+        "influence": 0.45316428495156014,
+        "posts_seen": 5,
+        "posts_shared": 0,
+        "posts_flagged": 1,
+        "share_rate": 0.0,
+        "total_shares_received": 4,
+        "current_task": null
+      },
+      {
+        "id": "agent_3",
+        "name": "Diana",
+        "type": "cautious_sharer",
+        "job_role": null,
+        "influence": 0.6733346107390963,
+        "posts_seen": 2,
+        "posts_shared": 1,
+        "posts_flagged": 0,
+        "share_rate": 0.5,
+        "total_shares_received": 2,
+        "current_task": null
+      },
+      {
+        "id": "agent_4",
+        "name": "Eve",
+        "type": "skeptic",
+        "job_role": null,
+        "influence": 0.3320353047945651,
+        "posts_seen": 3,
+        "posts_shared": 0,
+        "posts_flagged": 1,
+        "share_rate": 0.0,
+        "total_shares_received": 2,
+        "current_task": null
+      },
+      {
+        "id": "agent_5",
+        "name": "Frank",
+        "type": "skeptic",
+        "job_role": null,
+        "influence": 0.24512692038821604,
+        "posts_seen": 2,
+        "posts_shared": 0,
+        "posts_flagged": 0,
+        "share_rate": 0.0,
+        "total_shares_received": 0,
+        "current_task": null
+      },
+      {
+        "id": "agent_6",
+        "name": "Grace",
+        "type": "influencer",
+        "job_role": null,
+        "influence": 0.8312380363489414,
+        "posts_seen": 3,
+        "posts_shared": 1,
+        "posts_flagged": 0,
+        "share_rate": 0.3333333333333333,
+        "total_shares_received": 2,
+        "current_task": null
+      },
+      {
+        "id": "agent_7",
+        "name": "Henry",
+        "type": "influencer",
+        "job_role": null,
+        "influence": 0.8480153685842153,
+        "posts_seen": 4,
+        "posts_shared": 1,
+        "posts_flagged": 0,
+        "share_rate": 0.25,
+        "total_shares_received": 3,
+        "current_task": null
+      },
+      {
+        "id": "agent_8",
+        "name": "Ivy",
+        "type": "lurker",
+        "job_role": null,
+        "influence": 0.29500560103253093,
+        "posts_seen": 4,
+        "posts_shared": 0,
+        "posts_flagged": 0,
+        "share_rate": 0.0,
+        "total_shares_received": 4,
+        "current_task": null
+      },
+      {
+        "id": "agent_9",
+        "name": "Jack",
+        "type": "lurker",
+        "job_role": null,
+        "influence": 0.19205332403747044,
+        "posts_seen": 4,
+        "posts_shared": 0,
+        "posts_flagged": 0,
+        "share_rate": 0.0,
+        "total_shares_received": 3,
+        "current_task": null
+      },
+      {
+        "id": "agent_10",
+        "name": "Kate",
+        "type": "cautious_sharer",
+        "job_role": null,
+        "influence": 0.5720389703659016,
+        "posts_seen": 1,
+        "posts_shared": 0,
+        "posts_flagged": 0,
+        "share_rate": 0.0,
+        "total_shares_received": 1,
+        "current_task": null
+      },
+      {
+        "id": "agent_11",
+        "name": "Leo",
+        "type": "immediate_sharer",
+        "job_role": null,
+        "influence": 0.5404190669534532,
+        "posts_seen": 2,
+        "posts_shared": 1,
+        "posts_flagged": 0,
+        "share_rate": 0.5,
+        "total_shares_received": 1,
+        "current_task": null
+      },
+      {
+        "id": "agent_12",
+        "name": "Mia",
+        "type": "skeptic",
+        "job_role": null,
+        "influence": 0.33654424318935516,
+        "posts_seen": 2,
+        "posts_shared": 0,
+        "posts_flagged": 0,
+        "share_rate": 0.0,
+        "total_shares_received": 2,
+        "current_task": null
+      }
+    ]
+  }
+}
