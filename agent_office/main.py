@@ -8,6 +8,7 @@ Run the social network information spread simulation.
 import argparse
 import random
 from datetime import datetime
+from typing import Optional
 
 from .agent import Agent, AgentType, create_agent_from_type
 from .post import Post, PostCategory, TruthValue, create_sample_posts
@@ -57,7 +58,8 @@ def run_simulation(
     num_posts: int = 8,
     tick_delay: float = 0.3,
     max_ticks: int = 500,
-    verbose: bool = True
+    verbose: bool = True,
+    random_seed: Optional[int] = None
 ) -> dict:
     """
     Run the Agent Office simulation.
@@ -68,10 +70,15 @@ def run_simulation(
         tick_delay: Delay between simulation ticks
         max_ticks: Maximum number of ticks to run
         verbose: Whether to print detailed output
+        random_seed: Optional seed for reproducible random behavior
         
     Returns:
         Simulation report dictionary
     """
+    # Apply seed at the very start for full reproducibility
+    if random_seed is not None:
+        random.seed(random_seed)
+    
     # Initialize logger
     logger = SimulationLogger(verbose=verbose)
     
@@ -99,7 +106,8 @@ def run_simulation(
     simulation = Simulation(
         network=network,
         tick_delay=tick_delay,
-        on_event=on_event
+        on_event=on_event,
+        random_seed=random_seed
     )
     
     # Create and add posts

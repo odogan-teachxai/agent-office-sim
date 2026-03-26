@@ -9,6 +9,78 @@ from datetime import datetime
 import random
 
 
+# =============================================================================
+# Module-Level Constants
+# =============================================================================
+
+# --- Scoring Weights (used in _calculate_share_score) ---
+BASE_SKEPTICISM_WEIGHT = 0.3
+EMOTIONAL_MULTIPLIER_BASE = 1.0
+EMOTIONAL_MULTIPLIER_GULLIBILITY_FACTOR = 0.5
+EMOTIONAL_IMPACT_COEFFICIENT = 0.3
+CREDIBILITY_NEUTRAL_POINT = 0.5
+CREDIBILITY_BONUS_SCALE = 0.2
+SOURCE_RELIABILITY_NEUTRAL_POINT = 0.5
+SOURCE_RELIABILITY_BONUS_SCALE = 0.1
+SCORE_NOISE_RANGE = (-0.1, 0.1)
+
+# --- Suspicion Weights (used in _calculate_suspicion_score) ---
+SUSPICION_EMOTION_CRED_GAP_WEIGHT = 0.4
+SUSPICION_SOURCE_UNRELIABILITY_WEIGHT = 0.3
+SUSPICION_SKEPTICISM_BASE = 0.5
+SUSPICION_SKEPTICISM_SCALE = 0.5
+
+# --- Category Suspicion Adjustments ---
+CATEGORY_SUSPICION = {
+    "gossip": 0.15,
+    "politics": 0.05,
+    "health": 0.0,
+    "news": -0.05,
+    "science": -0.1,
+    "entertainment": 0.0,
+}
+
+# --- Evaluation Thresholds (used in evaluate_post) ---
+SUSPICION_THRESHOLD_VERIFY_BOOST = 0.5
+VERIFY_PROBABILITY_BOOST = 0.2
+SUSPICION_THRESHOLD_INTUITIVE_REJECTION = 0.7
+SKEPTICISM_THRESHOLD_INTUITIVE_REJECTION = 0.5
+INTUITIVE_REJECTION_SKEPTICISM_FACTOR = 0.5
+
+# --- Verification Parameters (used in _verify_post) ---
+TRUE_POST_PASS_BASE_PROB = 0.75
+TRUE_POST_SKEPTICISM_BONUS = 0.2
+TRUE_POST_CONFIDENCE_BASE = 0.7
+FALSE_POST_BASE_DETECTION = 0.6
+FALSE_POST_CREDIBILITY_ADJUSTMENT = 0.2
+FALSE_POST_EMOTION_MASK_FACTOR = 0.3
+FALSE_POST_DETECTION_MIN = 0.1
+FALSE_POST_DETECTION_MAX = 0.9
+FALSE_POST_CONFIDENCE_DETECTED = 0.3
+FALSE_POST_CONFIDENCE_UNDETECTED = 0.2
+UNCERTAIN_REJECT_BASE_PROB = 0.3
+UNCERTAIN_REJECT_SKEPTICISM_FACTOR = 0.4
+UNCERTAIN_CONFIDENCE_BASE = 0.4
+
+# =============================================================================
+# Helper Functions
+# =============================================================================
+
+def _category_name(post: 'Post') -> str:
+    """
+    Extract the category name string from a post's category field.
+    
+    Handles both PostCategory enum and plain string values gracefully.
+    """
+    if hasattr(post.category, 'value'):
+        return post.category.value
+    return str(post.category)
+
+
+# =============================================================================
+# Enums
+# =============================================================================
+
 class AgentType(Enum):
     """Types of agents based on their sharing behavior."""
     IMMEDIATE_SHARER = "immediate_sharer"      # Shares without thinking
@@ -37,6 +109,75 @@ class AgentBehavior(Enum):
     VERIFY_THEN_IGNORE = "verify_then_ignore"
     IGNORE = "ignore"
     FLAG_AS_SUSPICIOUS = "flag_as_suspicious"
+
+
+# --- Category Preferences by Agent Type ---
+CATEGORY_PREFERENCES = {
+    AgentType.IMMEDIATE_SHARER: {
+        "news": 0.1, "gossip": 0.2, "entertainment": 0.15,
+        "politics": 0.1, "science": 0.0, "health": 0.05
+    },
+    AgentType.CAUTIOUS_SHARER: {
+        "news": 0.1, "gossip": -0.1, "entertainment": 0.05,
+        "politics": 0.0, "science": 0.2, "health": 0.15
+    },
+    AgentType.SKEPTIC: {
+        "news": 0.05, "gossip": -0.2, "entertainment": 0.0,
+        "politics": -0.1, "science": 0.15, "health": 0.1
+    },
+    AgentType.INFLUENCER: {
+        "news": 0.15, "gossip": 0.1, "entertainment": 0.2,
+        "politics": 0.1, "science": 0.1, "health": 0.1
+    },
+    AgentType.LURKER: {
+        "news": 0.0, "gossip": 0.0, "entertainment": 0.0,
+        "politics": 0.0, "science": 0.0, "health": 0.0
+    },
+}
+
+# --- Agent Type Parameter Ranges ---
+AGENT_TYPE_RANGES = {
+    AgentType.IMMEDIATE_SHARER: {
+        "gullibility": (0.7, 0.95),
+        "skepticism": (0.1, 0.3),
+        "share_threshold": (0.2, 0.4),
+        "verify_probability": (0.1, 0.3),
+        "emotional_susceptibility": (0.7, 0.95),
+        "influence": (0.3, 0.6),
+    },
+    AgentType.CAUTIOUS_SHARER: {
+        "gullibility": (0.3, 0.5),
+        "skepticism": (0.5, 0.7),
+        "share_threshold": (0.5, 0.7),
+        "verify_probability": (0.6, 0.85),
+        "emotional_susceptibility": (0.3, 0.5),
+        "influence": (0.4, 0.7),
+    },
+    AgentType.SKEPTIC: {
+        "gullibility": (0.1, 0.3),
+        "skepticism": (0.8, 0.95),
+        "share_threshold": (0.7, 0.9),
+        "verify_probability": (0.8, 0.95),
+        "emotional_susceptibility": (0.1, 0.3),
+        "influence": (0.2, 0.5),
+    },
+    AgentType.INFLUENCER: {
+        "gullibility": (0.4, 0.6),
+        "skepticism": (0.3, 0.5),
+        "share_threshold": (0.4, 0.6),
+        "verify_probability": (0.4, 0.6),
+        "emotional_susceptibility": (0.5, 0.7),
+        "influence": (0.8, 0.98),
+    },
+    AgentType.LURKER: {
+        "gullibility": (0.3, 0.6),
+        "skepticism": (0.4, 0.6),
+        "share_threshold": (0.85, 0.95),
+        "verify_probability": (0.5, 0.7),
+        "emotional_susceptibility": (0.2, 0.4),
+        "influence": (0.1, 0.3),
+    },
+}
 
 
 @dataclass
@@ -111,48 +252,36 @@ class Agent:
         Returns:
             Tuple of (behavior, confidence_score)
         """
-        # Calculate base share score with misinformation awareness
         share_score = self._calculate_share_score(post)
-        
-        # Calculate suspicion score (higher for misinformation signals)
         suspicion_score = self._calculate_suspicion_score(post)
         
-        # Determine if agent will verify (influenced by suspicion)
+        # Suspicious content triggers more verification for cautious/skeptic types
         verify_prob = self.verify_probability
-        # More suspicious content triggers more verification for cautious/skeptic types
-        if suspicion_score > 0.5 and self.agent_type in [AgentType.CAUTIOUS_SHARER, AgentType.SKEPTIC]:
-            verify_prob = min(1.0, verify_prob + 0.2)
+        if suspicion_score > SUSPICION_THRESHOLD_VERIFY_BOOST and self.agent_type in [AgentType.CAUTIOUS_SHARER, AgentType.SKEPTIC]:
+            verify_prob = min(1.0, verify_prob + VERIFY_PROBABILITY_BOOST)
         
-        will_verify = random.random() < verify_prob
-        
-        if will_verify:
-            # Verification process with enhanced detection
+        if random.random() < verify_prob:
+            # Verification path
             verification_result = self._verify_post(post)
             
             if verification_result["passed"]:
-                # Post passed verification
-                if share_score >= self.share_threshold:
-                    return AgentBehavior.VERIFY_THEN_SHARE, share_score
-                else:
-                    return AgentBehavior.VERIFY_THEN_IGNORE, share_score
+                behavior = AgentBehavior.VERIFY_THEN_SHARE if share_score >= self.share_threshold else AgentBehavior.VERIFY_THEN_IGNORE
+                return behavior, share_score
             else:
-                # Post failed verification
-                # Flag probability based on suspicion and skepticism
+                # Failed verification: maybe flag based on suspicion + skepticism
                 flag_probability = self.skepticism * (0.5 + suspicion_score * 0.5)
                 if random.random() < flag_probability:
                     return AgentBehavior.FLAG_AS_SUSPICIOUS, suspicion_score
                 return AgentBehavior.VERIFY_THEN_IGNORE, suspicion_score
         else:
-            # No verification - immediate decision
-            # Even without verification, high suspicion can trigger intuitive rejection
-            if suspicion_score > 0.7 and self.skepticism > 0.5:
-                if random.random() < self.skepticism * 0.5:
+            # Immediate decision (no verification)
+            # High suspicion + skepticism can trigger intuitive rejection
+            if suspicion_score > SUSPICION_THRESHOLD_INTUITIVE_REJECTION and self.skepticism > SKEPTICISM_THRESHOLD_INTUITIVE_REJECTION:
+                if random.random() < self.skepticism * INTUITIVE_REJECTION_SKEPTICISM_FACTOR:
                     return AgentBehavior.IGNORE, share_score
             
-            if share_score >= self.share_threshold:
-                return AgentBehavior.SHARE_IMMEDIATELY, share_score
-            else:
-                return AgentBehavior.IGNORE, share_score
+            behavior = AgentBehavior.SHARE_IMMEDIATELY if share_score >= self.share_threshold else AgentBehavior.IGNORE
+            return behavior, share_score
     
     def _calculate_share_score(self, post: 'Post') -> float:
         """
@@ -165,19 +294,19 @@ class Agent:
         - Category preferences
         """
         # Base score from gullibility vs skepticism
-        base_score = self.gullibility - (self.skepticism * 0.3)
+        base_score = self.gullibility - (self.skepticism * BASE_SKEPTICISM_WEIGHT)
         
         # Emotional content impact - stronger for gullible agents
-        emotional_multiplier = 1.0 + (self.gullibility * 0.5)
-        emotional_impact = post.emotional_intensity * self.emotional_susceptibility * 0.3 * emotional_multiplier
+        emotional_multiplier = EMOTIONAL_MULTIPLIER_BASE + (self.gullibility * EMOTIONAL_MULTIPLIER_GULLIBILITY_FACTOR)
+        emotional_impact = post.emotional_intensity * self.emotional_susceptibility * EMOTIONAL_IMPACT_COEFFICIENT * emotional_multiplier
         
         # Credibility consideration (cautious types are more sensitive to this)
         credibility_bonus = 0.0
         if self.agent_type in [AgentType.CAUTIOUS_SHARER, AgentType.SKEPTIC]:
-            credibility_bonus = (post.credibility_score - 0.5) * 0.2
+            credibility_bonus = (post.credibility_score - CREDIBILITY_NEUTRAL_POINT) * CREDIBILITY_BONUS_SCALE
         
         # Source reliability consideration
-        source_bonus = (post.source_reliability - 0.5) * 0.1
+        source_bonus = (post.source_reliability - SOURCE_RELIABILITY_NEUTRAL_POINT) * SOURCE_RELIABILITY_BONUS_SCALE
         
         # Category alignment (some agents prefer certain categories)
         category_bonus = self._get_category_bonus(post)
@@ -186,7 +315,7 @@ class Agent:
         final_score = base_score + emotional_impact + credibility_bonus + source_bonus + category_bonus
         
         # Add some randomness (human unpredictability)
-        noise = random.uniform(-0.1, 0.1)
+        noise = random.uniform(*SCORE_NOISE_RANGE)
         final_score += noise
         
         return max(0.0, min(1.0, final_score))
@@ -205,56 +334,25 @@ class Agent:
         # Emotional intensity vs credibility mismatch
         # High emotion with low credibility is a classic misinformation signal
         emotion_credibility_gap = post.emotional_intensity * (1 - post.credibility_score)
-        suspicion += emotion_credibility_gap * 0.4
+        suspicion += emotion_credibility_gap * SUSPICION_EMOTION_CRED_GAP_WEIGHT
         
         # Low source reliability contributes to suspicion
-        suspicion += (1 - post.source_reliability) * 0.3
+        suspicion += (1 - post.source_reliability) * SUSPICION_SOURCE_UNRELIABILITY_WEIGHT
         
-        # Category-based suspicion adjustment
-        category_suspicion = {
-            "gossip": 0.15,
-            "politics": 0.05,
-            "health": 0.0,
-            "news": -0.05,
-            "science": -0.1,
-            "entertainment": 0.0
-        }
-        category_name = post.category.value if hasattr(post.category, 'value') else str(post.category)
-        suspicion += category_suspicion.get(category_name, 0.0)
+        # Category-based suspicion adjustment (using module-level constant)
+        category_name = _category_name(post)
+        suspicion += CATEGORY_SUSPICION.get(category_name, 0.0)
         
         # Agent's skepticism amplifies their suspicion detection
-        suspicion *= (0.5 + self.skepticism * 0.5)
+        suspicion *= (SUSPICION_SKEPTICISM_BASE + self.skepticism * SUSPICION_SKEPTICISM_SCALE)
         
         return max(0.0, min(1.0, suspicion))
     
     def _get_category_bonus(self, post: 'Post') -> float:
-        """Get bonus score based on post category and agent type."""
-        # Different agent types have preferences
-        preferences = {
-            AgentType.IMMEDIATE_SHARER: {
-                "news": 0.1, "gossip": 0.2, "entertainment": 0.15,
-                "politics": 0.1, "science": 0.0, "health": 0.05
-            },
-            AgentType.CAUTIOUS_SHARER: {
-                "news": 0.1, "gossip": -0.1, "entertainment": 0.05,
-                "politics": 0.0, "science": 0.2, "health": 0.15
-            },
-            AgentType.SKEPTIC: {
-                "news": 0.05, "gossip": -0.2, "entertainment": 0.0,
-                "politics": -0.1, "science": 0.15, "health": 0.1
-            },
-            AgentType.INFLUENCER: {
-                "news": 0.15, "gossip": 0.1, "entertainment": 0.2,
-                "politics": 0.1, "science": 0.1, "health": 0.1
-            },
-            AgentType.LURKER: {
-                "news": 0.0, "gossip": 0.0, "entertainment": 0.0,
-                "politics": 0.0, "science": 0.0, "health": 0.0
-            }
-        }
-        
-        category_name = post.category.value if hasattr(post.category, 'value') else str(post.category)
-        return preferences.get(self.agent_type, {}).get(category_name, 0.0)
+        """Get bonus score based on post category and agent type (using module-level constant)."""
+        category_name = _category_name(post)
+        preferences = CATEGORY_PREFERENCES.get(self.agent_type, {})
+        return preferences.get(category_name, 0.0)
     
     def _verify_post(self, post: 'Post') -> dict:
         """
@@ -277,37 +375,42 @@ class Agent:
         if post.truth_value.is_true():
             # True posts are more likely to pass verification
             # Even skeptics will generally approve true content
-            pass_probability = 0.75 + self.skepticism * 0.2  # Skeptics are slightly better at confirming truth
+            pass_probability = TRUE_POST_PASS_BASE_PROB + self.skepticism * TRUE_POST_SKEPTICISM_BONUS
             result["passed"] = random.random() < pass_probability
-            result["confidence_in_verification"] = 0.7 + random.uniform(0, 0.2)
+            result["confidence_in_verification"] = TRUE_POST_CONFIDENCE_BASE + random.uniform(0, 0.2)
             result["detected_false"] = False
             
         elif post.truth_value.is_false():
             # False posts - skepticism helps detect them
             # Detection chance is based on skepticism and post's credibility appearance
-            base_detection = self.skepticism * 0.6
+            base_detection = self.skepticism * FALSE_POST_BASE_DETECTION
             
             # Low credibility posts are easier to detect as false
-            credibility_adjustment = (1 - post.credibility_score) * 0.2
+            credibility_adjustment = (1 - post.credibility_score) * FALSE_POST_CREDIBILITY_ADJUSTMENT
             
             # High emotion can mask falsehoods for gullible agents
-            emotion_mask = post.emotional_intensity * self.gullibility * 0.3
+            emotion_mask = post.emotional_intensity * self.gullibility * FALSE_POST_EMOTION_MASK_FACTOR
             
             detection_chance = base_detection + credibility_adjustment - emotion_mask
-            detection_chance = max(0.1, min(0.9, detection_chance))
+            detection_chance = max(FALSE_POST_DETECTION_MIN, min(FALSE_POST_DETECTION_MAX, detection_chance))
             
             detected = random.random() < detection_chance
             result["detected_false"] = detected
             result["passed"] = not detected  # Pass if NOT detected as false
-            result["confidence_in_verification"] = 0.5 + (detection_chance * 0.3 if detected else 0.2)
+            
+            # Confidence: higher if detected, lower if missed
+            if detected:
+                result["confidence_in_verification"] = FALSE_POST_CONFIDENCE_DETECTED + detection_chance * 0.3
+            else:
+                result["confidence_in_verification"] = FALSE_POST_CONFIDENCE_UNDETECTED
             
         else:
             # Mixed or unverified posts - uncertain outcome
             # Skeptics tend to reject uncertain content
-            reject_probability = 0.3 + self.skepticism * 0.4
+            reject_probability = UNCERTAIN_REJECT_BASE_PROB + self.skepticism * UNCERTAIN_REJECT_SKEPTICISM_FACTOR
             result["passed"] = random.random() > reject_probability
             result["detected_false"] = False
-            result["confidence_in_verification"] = 0.4 + random.uniform(0, 0.2)
+            result["confidence_in_verification"] = UNCERTAIN_CONFIDENCE_BASE + random.uniform(0, 0.2)
         
         return result
     
@@ -369,51 +472,9 @@ def create_agent_from_type(
     Returns:
         Configured Agent instance
     """
-    
-    type_configs = {
-        AgentType.IMMEDIATE_SHARER: {
-            "gullibility": random.uniform(0.7, 0.95),
-            "skepticism": random.uniform(0.1, 0.3),
-            "share_threshold": random.uniform(0.2, 0.4),
-            "verify_probability": random.uniform(0.1, 0.3),
-            "emotional_susceptibility": random.uniform(0.7, 0.95),
-            "influence": random.uniform(0.3, 0.6)
-        },
-        AgentType.CAUTIOUS_SHARER: {
-            "gullibility": random.uniform(0.3, 0.5),
-            "skepticism": random.uniform(0.5, 0.7),
-            "share_threshold": random.uniform(0.5, 0.7),
-            "verify_probability": random.uniform(0.6, 0.85),
-            "emotional_susceptibility": random.uniform(0.3, 0.5),
-            "influence": random.uniform(0.4, 0.7)
-        },
-        AgentType.SKEPTIC: {
-            "gullibility": random.uniform(0.1, 0.3),
-            "skepticism": random.uniform(0.8, 0.95),
-            "share_threshold": random.uniform(0.7, 0.9),
-            "verify_probability": random.uniform(0.8, 0.95),
-            "emotional_susceptibility": random.uniform(0.1, 0.3),
-            "influence": random.uniform(0.2, 0.5)
-        },
-        AgentType.INFLUENCER: {
-            "gullibility": random.uniform(0.4, 0.6),
-            "skepticism": random.uniform(0.3, 0.5),
-            "share_threshold": random.uniform(0.4, 0.6),
-            "verify_probability": random.uniform(0.4, 0.6),
-            "emotional_susceptibility": random.uniform(0.5, 0.7),
-            "influence": random.uniform(0.8, 0.98)
-        },
-        AgentType.LURKER: {
-            "gullibility": random.uniform(0.3, 0.6),
-            "skepticism": random.uniform(0.4, 0.6),
-            "share_threshold": random.uniform(0.85, 0.95),
-            "verify_probability": random.uniform(0.5, 0.7),
-            "emotional_susceptibility": random.uniform(0.2, 0.4),
-            "influence": random.uniform(0.1, 0.3)
-        }
-    }
-    
-    config = type_configs.get(agent_type, type_configs[AgentType.CAUTIOUS_SHARER])
+    # Sample parameters from type-specific ranges (using module-level constant)
+    ranges = AGENT_TYPE_RANGES.get(agent_type, AGENT_TYPE_RANGES[AgentType.CAUTIOUS_SHARER])
+    config = {param: random.uniform(low, high) for param, (low, high) in ranges.items()}
     
     return Agent(
         id=agent_id,

@@ -9,7 +9,7 @@ if __name__ == "__main__":
     print("Starting Agent Office Simulation...")
     print("=" * 60)
     
-    report = run_simulation(
+    run_simulation(
         num_agents=13,      # 13 diverse agents
         num_posts=8,        # 8 different posts
         tick_delay=0.3,     # 0.3 second between updates

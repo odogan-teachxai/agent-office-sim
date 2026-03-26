@@ -18,6 +18,13 @@ if TYPE_CHECKING:
     from .office import Office, OfficeTask
 
 
+# =============================================================================
+# Module-Level Constants
+# =============================================================================
+
+DEFAULT_BATCH_SIZE = 5  # Shares processed per tick
+
+
 class SimulationState(Enum):
     """State of the simulation."""
     IDLE = "idle"
@@ -80,7 +87,8 @@ class Simulation:
         tick_delay: float = 0.5,
         on_event: Optional[Callable[[SimulationEvent], None]] = None,
         office: Optional['Office'] = None,
-        on_office_event: Optional[Callable[[str, 'Agent', Optional['OfficeTask']], None]] = None
+        on_office_event: Optional[Callable[[str, 'Agent', Optional['OfficeTask']], None]] = None,
+        random_seed: Optional[int] = None
     ):
         """
         Initialize the simulation.
@@ -91,12 +99,19 @@ class Simulation:
             on_event: Callback function for simulation events (info-spread)
             office: Optional Office instance for work simulation
             on_office_event: Callback for office events (event_type, agent, task)
+            random_seed: Optional seed for reproducible random behavior
         """
         self.network = network
         self.tick_delay = tick_delay
         self.on_event = on_event
         self.office = office
         self.on_office_event = on_office_event
+        self.random_seed = random_seed
+        
+        # Apply seed immediately for full reproducibility from Simulation creation onward
+        # This covers agent evaluation, office work, and the tick loop
+        if random_seed is not None:
+            random.seed(random_seed)
         
         self.state = SimulationState.IDLE
         self.current_tick = 0
@@ -286,7 +301,7 @@ class Simulation:
         
         # === PHASE 1: INFO-SPREAD SIMULATION (unchanged) ===
         # Process a batch of pending shares
-        batch_size = min(len(self.pending_shares), 5)
+        batch_size = min(len(self.pending_shares), DEFAULT_BATCH_SIZE)
         for _ in range(batch_size):
             event = self._process_pending_share()
             if event:

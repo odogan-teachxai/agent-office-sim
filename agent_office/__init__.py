@@ -30,6 +30,7 @@ from .office import (
     Office, OfficeTask, TaskType, TaskStatus, SAMPLE_TASKS,
     Product, ProductStatus, SAMPLE_PRODUCTS
 )
+from .demo_team import create_demo_team
 
 # Optional GUI visualization (requires tkinter)
 try:
@@ -64,6 +65,7 @@ __all__ = [
     "Product",
     "ProductStatus",
     "SAMPLE_PRODUCTS",
+    "create_demo_team",
     # ML Pipeline
     "DataGenerationPipeline",
     # Visualization

@@ -20,21 +20,7 @@ from agent_office import (
     Office, OfficeTask, SAMPLE_TASKS
 )
 from agent_office.logger import Colors
-
-
-def create_office_team() -> list[Agent]:
-    """Create a diverse office team."""
-    return [
-        create_agent_from_type("dev1", "Alice", AgentType.CAUTIOUS_SHARER, JobRole.DEVELOPER),
-        create_agent_from_type("dev2", "Bob", AgentType.IMMEDIATE_SHARER, JobRole.DEVELOPER),
-        create_agent_from_type("pm1", "Carol", AgentType.INFLUENCER, JobRole.PROJECT_MANAGER),
-        create_agent_from_type("tester1", "David", AgentType.SKEPTIC, JobRole.TESTER),
-        create_agent_from_type("designer1", "Eve", AgentType.CAUTIOUS_SHARER, JobRole.DESIGNER),
-        create_agent_from_type("janitor1", "Frank", AgentType.LURKER, JobRole.JANITOR),
-        create_agent_from_type("intern1", "Grace", AgentType.IMMEDIATE_SHARER, JobRole.INTERN),
-        create_agent_from_type("sales1", "Henry", AgentType.INFLUENCER, JobRole.SALES_REP),
-        create_agent_from_type("hr1", "Ivy", AgentType.CAUTIOUS_SHARER, JobRole.HR_MANAGER),
-    ]
+from agent_office.demo_setup import build_demo_simulation
 
 
 def print_banner(text: str, color: str, width: int = 70):
@@ -62,7 +48,13 @@ def run_live_office_simulation(num_ticks: int = 30):
     # Setup
     print_banner("🏢 LIVE OFFICE - Work Generates News!", colors.CYAN + colors.BOLD)
     
-    team = create_office_team()
+    # Shared demo setup (team, office, network, simulation with office attached)
+    team, office, network, sim = build_demo_simulation(
+        num_initial_tasks=5,
+        num_initial_posts=2,
+        connect_office=True,  # Office wired — task completions auto-inject posts
+        verbose=False,  # We'll print our own UX below
+    )
     
     print("\n👥 TEAM ROSTER:")
     print("-" * 60)
@@ -71,44 +63,15 @@ def run_live_office_simulation(num_ticks: int = 30):
         behavior = agent.agent_type.value.replace('_', ' ')
         print(f"  {agent.name:10} | {job:18} | {behavior}")
     
-    # Create office
-    office = Office("TechCorp HQ")
-    for agent in team:
-        office.add_agent(agent)
-    
-    # Add initial tasks
     print("\n📋 INITIAL TASKS:")
     print("-" * 60)
-    initial_tasks = random.sample(SAMPLE_TASKS, 5)
-    for task in initial_tasks:
-        office.add_task(task)
+    for task in office.get_pending_tasks()[:5]:
         print(f"  + {task.title} ({task.task_type.value})")
-    
-    # Create network
-    network = SocialNetwork()
-    for agent in team:
-        network.add_agent(agent)
-    network.create_preferential_attachment_network(avg_connections=3)
     
     print(f"\n🌐 Network: {len(team)} agents, {network.get_network_stats()['total_connections']} connections")
     
-    # Create simulation WITH office integration (posts will auto-inject!)
-    sim = Simulation(
-        network=network,
-        tick_delay=0,
-        on_event=None,  # We'll print manually for control
-        office=office,  # ← Office connected! Task completions → posts
-        on_office_event=None
-    )
-    
-    # Add some initial posts
-    posts = create_sample_posts()
-    selected_posts = random.sample(posts, min(2, len(posts)))
-    for post in selected_posts:
-        initial_agent = random.choice(team)
-        sim.add_post(post, initial_agent)
-    
-    print(f"📰 Added {len(selected_posts)} initial posts")
+    # Posts already added by build_demo_simulation
+    print(f"📰 Added {len(sim.posts)} initial posts")
     
     # Run simulation
     print_banner("🚀 SIMULATION STARTING - Watch Work Become News!", colors.GREEN + colors.BOLD)

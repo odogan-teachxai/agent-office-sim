@@ -7,6 +7,7 @@ from enum import Enum
 from typing import Optional
 from datetime import datetime
 import uuid
+import random
 
 
 class PostCategory(Enum):
@@ -56,7 +57,7 @@ class Post:
         created_at: When the post was created
         author_id: ID of the agent who created the post
     """
-    id: str = field(default_factory=lambda: str(uuid.uuid4())[:8])
+    id: str = field(default_factory=lambda: ''.join(random.choices('0123456789abcdef', k=8)))
     subject: str = ""
     content: str = ""
     category: PostCategory = PostCategory.NEWS

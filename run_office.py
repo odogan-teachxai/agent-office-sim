@@ -16,50 +16,7 @@ from agent_office import (
     Office, OfficeTask, TaskType, SAMPLE_TASKS
 )
 from agent_office.logger import SimulationLogger, Colors
-
-
-def create_office_team() -> list[Agent]:
-    """Create a diverse office team with different job roles."""
-    team = [
-        # Developers
-        create_agent_from_type("dev1", "Alice", AgentType.CAUTIOUS_SHARER, JobRole.DEVELOPER),
-        create_agent_from_type("dev2", "Bob", AgentType.IMMEDIATE_SHARER, JobRole.DEVELOPER),
-        
-        # Project Manager
-        create_agent_from_type("pm1", "Carol", AgentType.INFLUENCER, JobRole.PROJECT_MANAGER),
-        
-        # Tester
-        create_agent_from_type("tester1", "David", AgentType.SKEPTIC, JobRole.TESTER),
-        
-        # Designer
-        create_agent_from_type("designer1", "Eve", AgentType.CAUTIOUS_SHARER, JobRole.DESIGNER),
-        
-        # Janitor
-        create_agent_from_type("janitor1", "Frank", AgentType.LURKER, JobRole.JANITOR),
-        
-        # Intern
-        create_agent_from_type("intern1", "Grace", AgentType.IMMEDIATE_SHARER, JobRole.INTERN),
-        
-        # Sales Rep
-        create_agent_from_type("sales1", "Henry", AgentType.INFLUENCER, JobRole.SALES_REP),
-        
-        # HR Manager
-        create_agent_from_type("hr1", "Ivy", AgentType.CAUTIOUS_SHARER, JobRole.HR_MANAGER),
-    ]
-    return team
-
-
-def print_team_roster(agents: list[Agent]):
-    """Print the office team roster."""
-    print("\n" + "=" * 60)
-    print("👥 OFFICE TEAM ROSTER")
-    print("=" * 60)
-    
-    for agent in agents:
-        job = agent.job_role.value if agent.job_role else "no role"
-        behavior = agent.agent_type.value
-        print(f"  {agent.name:12} | {job:18} | {behavior}")
-    print()
+from agent_office.demo_setup import build_demo_simulation
 
 
 def print_task_board(office: Office):
@@ -90,47 +47,13 @@ def run_office_simulation(
     print(c("   🏢 AGENT OFFICE - WORK SIMULATION", colors.CYAN + colors.BOLD))
     print(c("=" * 70, colors.CYAN + colors.BOLD))
     
-    # Create the team
-    team = create_office_team()
-    print_team_roster(team)
-    
-    # Create office
-    office = Office("TechCorp HQ")
-    for agent in team:
-        office.add_agent(agent)
-    
-    # Add initial tasks
-    print(c("📋 Adding initial tasks...", colors.HEADER + colors.BOLD))
-    initial_tasks = random.sample(SAMPLE_TASKS, 5)
-    for task in initial_tasks:
-        office.add_task(task)
-        if verbose:
-            print(f"  + {task.title} ({task.task_type.value}, difficulty: {task.difficulty})")
-    
-    print_task_board(office)
-    
-    # Create network for info spread
-    network = SocialNetwork()
-    for agent in team:
-        network.add_agent(agent)
-    network.create_preferential_attachment_network(avg_connections=3)
-    
-    print(c("🌐 Network created with preferential attachment", colors.BLUE))
-    print(f"   Total connections: {network.get_network_stats()['total_connections']}")
-    print()
-    
-    # Create simulation
-    sim = Simulation(network, tick_delay=0)
-    
-    # Add some posts
-    posts = create_sample_posts()
-    selected_posts = random.sample(posts, min(3, len(posts)))
-    for post in selected_posts:
-        initial_agent = random.choice(team)
-        sim.add_post(post, initial_agent)
-    
-    print(c(f"📰 Added {len(selected_posts)} posts to the network", colors.BLUE))
-    print()
+    # Shared demo setup (team, office, network, simulation, posts)
+    team, office, network, sim = build_demo_simulation(
+        num_initial_tasks=5,
+        num_initial_posts=3,
+        connect_office=False,
+        verbose=True,
+    )
     
     # Run simulation ticks - always show ALL actions
     print(c("🚀 Starting simulation...", colors.GREEN + colors.BOLD))
@@ -199,7 +122,7 @@ def run_office_simulation(
         # Show completions
         if office_completions:
             print(f"\n      ✅ Completed this tick ({len(office_completions)}):")
-            for agent, task in office_completions:
+            for agent, task, _ in office_completions:
                 job = agent.job_role.value if agent.job_role else "?"
                 print(f"        • {agent.name:10} | {job:15} → {task.title}")
         else:

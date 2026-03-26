@@ -40,6 +40,7 @@ from agent_office import (
     TaskType
 )
 from agent_office.logger import Colors
+from agent_office.demo_team import create_demo_team
 
 
 class ContinuousOfficeSimulation:
@@ -110,17 +111,7 @@ class ContinuousOfficeSimulation:
     
     def _create_team(self) -> list[Agent]:
         """Create a diverse office team."""
-        return [
-            create_agent_from_type("dev1", "Alice", AgentType.CAUTIOUS_SHARER, JobRole.DEVELOPER),
-            create_agent_from_type("dev2", "Bob", AgentType.IMMEDIATE_SHARER, JobRole.DEVELOPER),
-            create_agent_from_type("pm1", "Carol", AgentType.INFLUENCER, JobRole.PROJECT_MANAGER),
-            create_agent_from_type("tester1", "David", AgentType.SKEPTIC, JobRole.TESTER),
-            create_agent_from_type("designer1", "Eve", AgentType.CAUTIOUS_SHARER, JobRole.DESIGNER),
-            create_agent_from_type("janitor1", "Frank", AgentType.LURKER, JobRole.JANITOR),
-            create_agent_from_type("intern1", "Grace", AgentType.IMMEDIATE_SHARER, JobRole.INTERN),
-            create_agent_from_type("sales1", "Henry", AgentType.INFLUENCER, JobRole.SALES_REP),
-            create_agent_from_type("hr1", "Ivy", AgentType.CAUTIOUS_SHARER, JobRole.HR_MANAGER),
-        ]
+        return create_demo_team()
     
     def _generate_tasks(self, count: int):
         """Generate new tasks for the office."""
